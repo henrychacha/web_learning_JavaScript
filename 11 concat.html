@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 数组.concat(参数)
+        // 作用：连接数组(合并数组)，参数可以是一个或多个数组，会将这些数组中的每一项都添加到结果数组中
+        // 注意：返回合并后的数组，不改变原数组
+
+        var arr1 = [1, 2, 3];
+        var arr2 = [4, 5, 6];
+
+        var n = arr1.concat(arr2, '张三', '李四');
+
+        console.log(arr1); // [ 1, 2, 3 ]
+        console.log(arr2); // [4, 5, 6]
+        console.log(n); // [ 1, 2, 3, 4, 5, 6, "张三", "李四" ]
+
+
+    </script>
+</body>
+
+</html>

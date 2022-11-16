@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('li').filter('.box').css('background', 'red'); // 找到Li，过滤出box
+            $('li').not('.box').css('background', 'red'); // 找到Li，过滤出不是box的
+
+            $('ul').find('li').css('background', 'red'); // 子孙
+        })
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li class="box">222</li>
+        <li class="box">333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+</body>
+
+</html>

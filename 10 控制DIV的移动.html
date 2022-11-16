@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <script>
+        // 按键盘上的上键 左键 右键 下键控制元素的左右移动
+        // 问题：键盘按一下走一下，这样不智能
+        // 思考：如何实现按下，不抬起，盒子快速的运动
+        // 按方向键确定方向，盒子运动靠定时器
+
+        var box = document.getElementById('box');
+        document.onkeydown = function () {
+            var ev = ev || event;
+            // console.log(ev.keyCode); // 左37 上38 右39 下40
+            switch (ev.keyCode) {
+                case 37: // 向左
+                    box.style.left = box.offsetLeft - 10 + 'px';
+                    break;
+                case 38: // 向上
+                    box.style.top = box.offsetTop - 10 + 'px';
+                    break;
+                case 39: // 向右
+                    box.style.left = box.offsetLeft + 10 + 'px';
+                    break;
+                case 40: // 向向
+                    box.style.top = box.offsetTop + 10 + 'px';
+                    break;
+                default:
+                    console.log('请按方向键');
+            }
+
+        }
+    </script>
+</body>
+
+</html>

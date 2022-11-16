@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="js/ajax.js"></script>
+    <script>
+        ajax('get', 'data/1.txt', null, function (data) {
+            console.log(data);
+        })
+
+        ajax('get', 'data/1.txt', 'a=1&b=2', function (data) {
+            console.log(data);
+        })
+
+        ajax('post', 'data/1.txt', null, function (data) {
+            console.log(data);
+        })
+
+        ajax('post', 'data/1.txt', 'c=3&d=4', function (data) {
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>

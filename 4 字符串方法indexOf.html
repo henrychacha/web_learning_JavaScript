@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：字符串.indexOf(要查找的字符，查找的起始位置);
+        // 作用：查找这个字符在字符串中的位置下标
+        // 注意：只找一次; 如果不写起始位置，默认从0开始找; 如果找不到，返回-1
+        // 用处：字符串去重
+
+        var str = 'abcdabcd';
+
+        console.log(str.indexOf('c')); // 2
+        console.log(str.indexOf('c', 3)); // 6
+
+        console.log(str.indexOf('abc')); // 0
+
+        // -----------------------------------
+        // 字符串.lastIndexOf(要查找的字符，查找的起始位置);
+        // 从右向左查找
+        console.log(str.lastIndexOf('c')); // 6
+        console.log(str.lastIndexOf('c', 5)); // 2
+
+        console.log(str.indexOf('z')); // -1
+
+        // --------------------------------------
+        // 封装一个方法，实现字符串去重
+        var str = 'abcabcabc';
+        console.log(fn(str)); // abc
+
+        function fn(s) {
+            var str = ''; // 存储去重后的字符
+            for (var i = 0; i < s.length; i++) {
+                if (str.indexOf(s[i]) === -1) { // s[i]是每个字符
+                    str += s[i];
+                }
+            }
+            return str;
+        }
+
+    </script>
+</body>
+
+</html>

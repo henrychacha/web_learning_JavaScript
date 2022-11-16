@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+            单价：<b>12.5</b>元
+            小计：<i>0</i>元
+        </li>
+        <li>
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+            单价：<b>8.5</b>元
+            小计：<i>0</i>元
+        </li>
+        <li>
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+            单价：<b>9</b>元
+            小计：<i>0</i>元
+        </li>
+        <li>
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+            单价：<b>7.8</b>元
+            小计：<i>0</i>元
+        </li>
+    </ul>
+
+    <script>
+        // 思路：先实现第一个，而且第一个li里面的元素，要通过第一个li来获取
+
+        var li = document.getElementsByTagName('li');
+        // console.log(li);
+
+        var btn = li[0].getElementsByTagName('button'); // 两个按钮
+        var span = li[0].getElementsByTagName('span')[0]; // 件数 元素
+        var b = li[0].getElementsByTagName('b')[0]; // 单价 元素
+        var i = li[0].getElementsByTagName('i')[0]; // 小计
+        var count = span.innerHTML; // 件数
+        var n = b.innerHTML; // 单价
+
+        // 加
+        btn[1].onclick = function () {
+            count++;
+            if (count >= 10) { // 最多只能买十件
+                count = 10;
+            }
+            span.innerHTML = count; // 把改变后的件数再返回
+            i.innerHTML = n * count; // 小计
+        }
+
+        // 减
+        btn[0].onclick = function () {
+            count--;
+            if (count <= 0) {
+                count = 0;
+            }
+            span.innerHTML = count;
+            i.innerHTML = n * count;
+        }
+
+    </script>
+</body>
+
+</html>

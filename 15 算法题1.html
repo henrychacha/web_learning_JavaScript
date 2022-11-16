@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 把下面的字符串去重，并去除掉特殊字符按照数字在前字母在后的顺序排序字符串 
+        // 1、去重
+        // 2、去掉特殊字符
+        // 3、数字在前，字母在后
+
+        var str = '1233fddfd&3434fdsaff&454545&4545444rfdsfds&545gdsgs';
+        console.log(fn(str)); // 12345fdsarg
+
+        function fn(str) {
+            // 1、字符串去重
+            var s = ''; // 存储去重以后的字符串
+            for (var i = 0; i < str.length; i++) {
+                if (s.indexOf(str[i]) === -1) {
+                    s += str[i]
+                }
+            }
+            // console.log(s); // 123fd&4sa5rg
+
+            // 2、找到数字，存给一个变量，找到字母，存给一个变量
+            var l = ''; // 存储数字
+            var r = ''; // 存储字母
+            for (var i = 0; i < s.length; i++) {
+                if (s[i] >= '0' && s[i] <= '9') {
+                    l += s[i];
+                }
+                if (s[i] >= 'a' && s[i] <= 'z') {
+                    r += s[i]
+                }
+            }
+            // console.log(l, r);
+
+            // 3、返回
+            return l + r;
+        }
+
+
+    </script>
+</body>
+
+</html>

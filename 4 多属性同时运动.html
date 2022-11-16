@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj)[attr];
+            } else {
+                return obj.currentStyle[attr];
+            }
+        }
+
+        function move(obj, json, callback) {
+            clearInterval(obj.timer); // 先清后开
+            obj.timer = setInterval(function () {
+
+                for (var attr in json) { // attr就是属性 target就是目标
+                    var target = json[attr];
+
+                    if (attr === 'opacity') {
+                        var iNow = getStyle(obj, 'opacity') * 100; // 0.3 * 100    当前的位置
+                    } else {
+                        var iNow = parseInt(getStyle(obj, attr)); // 当前的位置
+                    }
+
+                    var dir = iNow < target ? 10 : -10; // 方向 步长
+                    var speed = iNow + dir; // 下次应该运动到的位置
+
+                    if ((speed >= target && dir > 0) || (speed <= target && dir < 0)) {
+                        speed = target;
+                    }
+
+                    if (attr === 'opacity') {
+                        obj.style.opacity = speed / 100;
+                        obj.style.filter = 'alpha(opacity=' + speed + ')';
+                    } else {
+                        obj.style[attr] = speed + 'px';
+                    }
+
+                    if (speed === target) {
+                        clearInterval(obj.timer);
+                        callback && callback();
+                    }
+
+                }
+
+            }, 30);
+        }
+
+        var box = document.getElementById('box');
+        // 点击的时候，宽高同时到500
+        box.onclick = function () {
+            move(box, {
+                width: 500,
+                height: 500
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #abc {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list1">
+        <li class="box" id="abc">吃饭</li>
+        <li class="box">睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+    <ul id="list2">
+        <li class="box">足球</li>
+        <li>篮球</li>
+    </ul>
+
+    <script>
+        // IE8及以上支持
+        // document.querySelector('css选择器');    返回找到的第一个元素
+        // document.querySelectorAll('css选择器'); 返回找到的所有的元素
+
+        var abc = document.querySelector('#abc');
+        console.log(abc);
+
+        var li = document.querySelectorAll('li');
+        console.log(li); // 类数组 长度 可以通过下标获取某一个
+
+        var box = document.querySelectorAll('.box');
+        console.log(box);
+
+        var box2 = document.querySelectorAll('#list1 .box');
+        console.log(box2);
+
+    </script>
+</body>
+
+</html>

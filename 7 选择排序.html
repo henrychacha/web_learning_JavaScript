@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 选择排序：从第一项起，每一项都和后面所有项依次比较，如果被比较项比当前项小，则两项交换位置。每一轮，都找到一个最小的数，放到前面
+        var arr = [5, 32, 7, 45, 2];
+
+        console.log(fn(arr));
+
+        function fn(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    // arr[i] 每一项  arr[j] 后面的所有的项
+                    if (arr[i] > arr[j]) {
+                        var temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #canvas{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas')
+
+        /*
+            shadowBlur: 0
+            shadowColor: "rgba(0, 0, 0, 0)"
+            shadowOffsetX: 0
+            shadowOffsetY: 0
+        */ 
+        let ctx = canvas.getContext('2d')
+        console.log(ctx);
+
+        ctx.beginPath()
+        ctx.shadowBlur = 0//数字越大，就越模糊
+        ctx.shadowColor = 'red'
+        ctx.shadowOffsetX = 5
+        ctx.shadowOffsetY = 5
+        ctx.rect(0,0,100,100)
+        ctx.fill()
+
+
+        ctx.beginPath()
+        ctx.shadowOffsetX = 2
+        ctx.shadowOffsetY = 2
+        ctx.shadowColor = 'blue'
+        ctx.rect(110,110,100,100)
+        ctx.fill()
+    </script>
+</body>
+</html>

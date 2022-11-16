@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var arr = [4, 5, 3, 45, 2, 7];
+        console.log(fn(arr));
+
+        // 封装一个方法，找出数组中的最大值
+        function fn(arr) {
+            var n = arr[0]; // 取出数组中的一个值
+            for (var i = 1; i < arr.length; i++) { // 用第一个值同后面的每个值进行比较
+                if (arr[i] > n) {
+                    n = arr[i];
+                }
+            }
+            return n;
+        }
+    </script>
+</body>
+
+</html>

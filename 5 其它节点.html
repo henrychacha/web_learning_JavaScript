@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="list">
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+
+    <script>
+        var list = document.getElementById('list');
+
+        // 通过父级，获取第一个子节点
+        // 父元素.firstChild  在标准浏览器下，返回的可能是一个文本节点，在IE8及以下，返回的是第一个元素节点
+        // 父元素.firstElementChild  在标准浏览器下，返回的是第一个元素节点，在IE8及以下，没有
+
+        var first = list.firstChild;
+        var first = list.firstElementChild;
+        console.log(first);
+
+        var first = list.firstElementChild || list.firstChild; // 如果是标准浏览器，firstElementChild就能返回第一个元素，而在IE8及以下，它就只能返回undefined，这样就走到了firstChild
+        first.style.backgroundColor = 'green';
+
+        // --------------------------------
+        // 最后一个子节点
+        var last = list.lastElementChild || list.lastChild;
+        last.style.backgroundColor = 'yellow';
+
+        // 下一个兄弟节点（找第一个的下一个兄弟节点）
+        var next = first.nextElementSibling || first.nextSibling;
+        next.style.backgroundColor = 'brown';
+
+        // 上一个兄弟节点（找最后一个的上一个兄弟节点）
+        var prev = last.previousElementSibling || last.previousSibling;
+        prev.style.backgroundColor = 'red';
+
+        // 第一个子节点和最后一个子节点，我们推荐
+        var li = list.children;
+        // li[0]                        就是第一个
+        // li[li.length - 1]            就是最后一个
+
+    </script>
+</body>
+
+</html>

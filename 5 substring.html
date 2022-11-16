@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 语法：字符串.substring(起始下标，结束下标);
+        // 作用: 用于提取字符串中介于两个指定下标之间的字符（截取字符串）
+
+        var str = 'abcdefg';
+        console.log(str.substring(2)); // cdefg  1个参数，从当前参数处开始，到结束
+        console.log(str.substring(2, 5)); // cde 2个参数，从第一个参数处起，到第二个参数处止，不包括第二个参数
+        console.log(str.substring(5, 2)); // cde 如果第一个参数比第二个参数大，则交换位置
+        console.log(str.substring(-2, 5)); // abcde  如果参数为负值，则为0
+    </script>
+</body>
+
+</html>

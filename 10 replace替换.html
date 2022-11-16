@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：字符串.replace(被替换的字符, 替换的字符);
+
+        var str = '13345679999'; // 133****9999;
+
+        var v = str.replace('4567', '****');
+        console.log(v);
+
+        // ----------------------------------
+        // 封装一个方法，实现手机号中间四位变****
+
+        function fn(str) {
+            var s = str.substr(3, 4); // 截取中间四位
+            return str.replace(s, '****');
+        }
+        console.log(fn('15311985072'));
+        console.log(fn('13290498681'));
+
+
+
+
+
+    </script>
+</body>
+
+</html>

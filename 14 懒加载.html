@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        ul {
+            width: 700px;
+            margin: 20px auto;
+        }
+
+        ul li {
+            width: 300px;
+            height: 200px;
+            float: left;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+
+        ul li img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        // 传一个元素，返回这个元素到文档的距离
+        function getPos(obj) {
+            var o = { // 存储盒子到左边和顶边的距离
+                left: 0,
+                top: 0
+            }
+            while (obj) {
+                o.left += obj.offsetLeft;
+                o.top += obj.offsetTop;
+                obj = obj.offsetParent;
+            }
+            return o;
+        }
+
+        window.onload = function () {
+            // 原理：滚动条的高度 + 可视区的高度 > 图片到顶部的距离，证明这个图片到了可视区域
+            var imgs = document.getElementsByTagName('img'); // 所有的图片
+            var clientH = document.documentElement.clientHeight; // 可视区的高度
+
+            auto();
+            window.onscroll = auto;
+
+            function auto() {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 滚动条的高度
+
+                for (var i = 0; i < imgs.length; i++) {
+                    var img = imgs[i]; // 单个图片
+                    var t = getPos(img).top; // 当前这张图片到顶部的距离
+                    if (scrollTop + clientH > t + 400) {
+                        img.src = img.getAttribute('_src');
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/1.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/2.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/3.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/4.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/5.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/6.jpg" alt=""></li>
+        <li><img src="img/white.JPG" _src="img/7.jpg" alt=""></li>
+    </ul>
+</body>
+
+</html>

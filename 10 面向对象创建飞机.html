@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 600px;
+            border: 1px solid red;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        #box img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 参数：父级 图片地址 x轴 y轴
+        function Plane(parent, src, x, y) {
+            this.parent = parent; // 父级
+            this.imgNode = null; // 图片img
+            this.src = src; // 图片的地址
+            this.x = x; // x轴
+            this.y = y; // y轴
+        }
+        Plane.prototype.create = function () {
+            this.imgNode = document.createElement('img');
+            this.imgNode.src = this.src;
+            this.imgNode.style.left = this.x + 'px';
+            this.imgNode.style.top = this.y + 'px';
+            this.parent.appendChild(this.imgNode);
+        }
+
+        // 使用
+        var box = document.getElementById('box');
+        // var p1 = new Plane(box, 'img/fj.gif', 100, 100);
+        // p1.create();
+
+
+        // --------------------------------------
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        setInterval(function () {
+            var p1 = new Plane(box, 'img/fj.gif', getRandom(0, 334), getRandom(0, 520));
+            p1.create();
+        }, 1000);
+    </script>
+</body>
+
+</html>

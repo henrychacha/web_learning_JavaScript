@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入姓名">
+    <input type="text" placeholder="请输入性别">
+    <input type="text" placeholder="请输入年龄">
+    <button>添加</button>
+
+    <br><br>
+    <table width="600" border="1" cellspacing='0'>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        var txt = document.getElementsByTagName('input'); // 输入框
+        var btn = document.querySelector('button'); // 按钮
+        var tbody = document.querySelector('tbody'); // 表格体
+
+        btn.onclick = function () {
+            // 1、创建tr，存储一堆的td
+            var tr = document.createElement('tr');
+
+            // 2、创建序号
+            var td = document.createElement('td');
+            td.innerText = tbody.rows.length + 1;
+            tr.appendChild(td);
+
+            // 3、创建姓名
+            var td = document.createElement('td');
+            td.innerText = txt[0].value;
+            tr.appendChild(td);
+
+            // 4、创建性别
+            var td = document.createElement('td');
+            td.innerText = txt[1].value;
+            tr.appendChild(td);
+
+            // 5、创建年龄
+            var td = document.createElement('td');
+            td.innerText = txt[2].value;
+            tr.appendChild(td);
+
+            // 6、创建删除操作
+            var td = document.createElement('td');
+            // 删除按钮
+            var a = document.createElement('a');
+            a.innerText = '删除';
+            a.href = 'javascript:;';
+            a.onclick = function () { // 点击的时候删除tr
+                tbody.removeChild(this.parentNode.parentNode);
+
+                // 调整序号
+                var rows = tbody.rows; // 删除之后，获取剩下的tr
+                for (var i = 0; i < rows.length; i++) {
+                    rows[i].cells[0].innerText = i + 1;
+                }
+            }
+            td.appendChild(a);
+            tr.appendChild(td);
+
+            tbody.appendChild(tr); // tr添加到tbody中
+
+            // 三个input内容应该再清空
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            background-color: #ccc;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .active {
+            background: red;
+            color: white;
+        }
+
+        #box div {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #ccc;
+            font-size: 50px;
+            line-height: 150px;
+            text-align: center;
+            display: none;
+        }
+
+        #box div.show {
+            display: block;
+        }
+    </style>
+
+    <script>
+        function Tab() {
+            this.box = document.getElementById('box');
+            this.span = this.box.getElementsByTagName('span');
+            this.div = this.box.getElementsByTagName('div');
+        }
+        
+        Tab.prototype.init = function () {
+            var _this = this; // 这个this是对象
+            for (var i = 0; i < this.span.length; i++) {
+                this.span[i].index = i; // 自定义下标
+                this.span[i].onclick = function () {
+                    _this.change(this);
+                };
+            }
+        }
+
+        Tab.prototype.change = function (obj) {
+            // 1、所有的span去掉样式，所有的div隐藏
+            for (var i = 0; i < this.span.length; i++) {
+                this.span[i].className = '';
+                this.div[i].className = '';
+            }
+
+            // 2、对应的span添加样式，对应的div显示
+            obj.className = 'active';
+            this.div[obj.index].className = 'show';
+        }
+
+        window.onload = function () {
+            var t1 = new Tab();
+            t1.init();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <span class="active">html</span>
+        <span>css</span>
+        <span>js</span>
+        <div class="show">html</div>
+        <div>css</div>
+        <div>js</div>
+    </div>
+</body>
+
+</html>

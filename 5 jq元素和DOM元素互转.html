@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // jq转原生
+            var li = $('li');
+            console.log(li);
+
+            // 1、加[下标]，返回对应下标的原生元素
+            console.log(li[1]);
+
+            // 2、jq对象.get(下标)  不写参数，返回一个数组，写参数，返回对应参数的元素
+            console.log(li.get());
+            console.log(li.get(1));
+
+            // -------------------------------
+            // 原生转jq    $(原生)
+            var li2 = document.getElementsByTagName('li');
+            console.log($(li2));
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+</body>
+
+</html>

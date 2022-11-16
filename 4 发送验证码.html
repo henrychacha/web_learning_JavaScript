@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>发送验证码</button>
+
+    <script>
+        var btn = document.querySelector('button');
+        var timer = null; // 先给定时器定义一个名
+        var n = 5;
+
+        // 问题，如果快速多次点击，会产生意想不到的效果
+        // 原因：多次点击，会产生多个定时器
+
+        btn.onclick = function () {
+
+            // 开启一个定时器
+            timer = setInterval(function () {
+                n--;
+                btn.innerText = n + '秒后重新发送验证码';
+                if (n <= 0) {
+                    clearInterval(timer);
+                    btn.innerText = '重新发送验证码';
+                    n = 5;
+                }
+            }, 1000)
+        }
+
+    </script>
+</body>
+
+</html>

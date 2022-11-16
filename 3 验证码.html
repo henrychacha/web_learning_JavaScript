@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 验证码
+        // 封装一个方法，从0-9 a-z A-Z这些字符中，生成一个n位数的验证码
+
+        // 随机数公式
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function fn(len) {
+            var s1 = '0123456789';
+            var s2 = 'abcdefghijklmnopqrstuvwxyz';
+            var s3 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var s = s1 + s2 + s3; // 0-9 a-z A-Z
+            var str = ''; // 接收随机的字符
+
+            for (var i = 0; i < len; i++) {
+                var n = getRandom(0, s.length - 1);
+                // console.log(s[n]);
+                str += s[n];
+            }
+            return str;
+        }
+
+        for (var i = 0; i < 20; i++) {
+            console.log(fn(6));
+        }
+
+    </script>
+</body>
+
+</html>

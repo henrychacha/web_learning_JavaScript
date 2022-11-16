@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 工厂模式，其实就是封装函数
+        function createObject(name, age) {
+            // 1、准备原料
+            var obj = new Object();
+
+            // 2、加工
+            obj.name = name;
+            obj.age = age;
+            obj.eat = function () {
+                console.log('吃西瓜');
+            }
+
+            // 3、出厂
+            return obj;
+        }
+
+        var p1 = createObject('张三', 3);
+        console.log(p1);
+
+        var p2 = createObject('李四', 5);
+        console.log(p2);
+
+        // -----------------------------
+        // 工厂模式不足：不能确定它们是哪个对象的实例（不知道是哪个模板创建的）
+
+        // 实例 instanceof 类：运算符，一个对象是否为指定的构造函数的实例，返回布尔值
+        console.log(p1 instanceof createObject); // false
+
+        // 数组是Array实例，也是Object实例
+        console.log([] instanceof Array); // true
+        console.log([] instanceof Object); // true，Object是我们一切对象的根本
+
+
+
+    </script>
+</body>
+
+</html>

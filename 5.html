@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+
+    <script>
+        // 1、封装一个方法，用于获取元素的样式
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                // 标准浏览器
+                return getComputedStyle(obj)[attr];
+            } else {
+                // IE8及以下
+                return obj.currentStyle[attr];
+            }
+        }
+
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        btn.onclick = function () {
+            clearInterval(box.timer); // 先清后开
+
+            box.timer = setInterval(function () {
+                var speed = parseInt(getStyle(box, 'left')); // 取得当前的位置
+                speed += 10; // 这次定时器box应该运动到的位置
+
+                if (speed >= 500) {
+                    clearInterval(box.timer);
+                    speed = 500;
+                }
+
+                box.style.left = speed + 'px'; // 把这个值再赋回去
+            }, 30);
+        }
+
+        // 问题：点一下，动一下，非常不智能(加定时器)
+        // 问题：不能停止
+        // 问题：多次点击会加速（开了多个定时器）
+        // 问题：我仅仅只希望元素跑起来，但是外面有定时器（对外界依赖过多），将定时器作为box的自定义属性 box.timer
+        // 问题：暂时只能向面，没有向左
+
+    </script>
+</body>
+
+</html>

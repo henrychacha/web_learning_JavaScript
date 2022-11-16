@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 字面量(推荐)
+        // var re = /正则/修饰符;
+
+        // 构造函数(正则里面有变量时，我们用构造函数创建)
+        // var re = new RegExp('正则', '修饰符');
+
+
+        var re = /a/; // a为字符串
+        var re2 = new RegExp('a'); // a为字符串
+
+        var a = 'abc';
+        var re3 = new RegExp(a); // a为变量
+    </script>
+</body>
+
+</html>

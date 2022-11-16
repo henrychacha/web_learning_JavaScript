@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // switch一般用于假设的个数有限，并且是同等级的关系，相对于if来说，结构更清晰。
+        // break不能省略，如果省略，从匹配上的哪项开始，后面的都会执行
+        // 使用建议：如果分支大于3条以上，使用switch，否则使用if
+
+        // switch (数据) {
+        //     case 条件1:
+        //         执行代码1(如果数据和条件1是三个等号的全等，则执行这里);
+        //         break;
+        //     case 条件2:
+        //         执行代码2(如果数据和条件2是三个等号的全等，则执行这里);
+        //         break;
+        //     ...
+        //     default:
+        //         如果数据和以上条件均不全等，执行这里
+        //         break;
+        // }
+
+
+        // --------------------------------
+
+        // 返回今天星期几（它打出的是数字，我们要把数字转成汉字）
+        console.log(new Date().getDay()); // 0 -- 6  代表 周日 -- 周六
+
+        switch (new Date().getDay()) {
+            case 0:
+                console.log('星期日');
+                break;
+            case 1:
+                console.log('星期一');
+                break;
+            case 2:
+                console.log('星期二');
+                break;
+            case 3:
+                console.log('星期三');
+                break;
+            case 4:
+                console.log('星期四');
+                break;
+            case 5:
+                console.log('星期五');
+                break;
+            case 6:
+                console.log('星期六');
+                break;
+            // default: 可以不用default
+        }
+
+    </script>
+</body>
+
+</html>

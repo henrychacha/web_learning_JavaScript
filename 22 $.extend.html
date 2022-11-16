@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // 作用2：对象的深度克隆
+        // $.extend(true, dest, src1); // src1克隆到dest上面，深度克隆
+
+        // 需求：将obj1克隆一份
+        // ------------------------------------
+        // 浅克隆
+        var obj1 = {
+            a: 1,
+            b: 2
+        }
+
+        var o = $.extend({}, obj1);
+        console.log(o); // { a: 1, b: 2 }
+
+        // --------------------------------
+        // 深克隆
+        var obj1 = {
+            a: {
+                name: '张三'
+            }
+        }
+        var o = $.extend(true, {}, obj1);
+        console.log(o);
+
+        o.a.name = '李四'; // 浅克隆时，修改一个，另一个也跟着改了，深克隆时，修改一个，另一个不会改变
+        console.log(obj1.a.name);
+        console.log(o.a.name);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #top {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            width: 60px;
+            height: 60px;
+            background: green;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+
+    <span id="top"></span>
+
+    <script>
+        var btn = document.getElementById('top');
+        // 1、向滚动的时候，如果滚动的距离大于了200，返回顶部按钮显示，否则隐藏
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if (scrollTop > 200) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        // 2、点击按钮，返回
+        btn.onclick = function () {
+            // 需要知道滚动条的高度   比如高度1000，每隔10ms减50，则得到950，我把这个950赋给scrollTop，则能完成运动向上
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            var timer = setInterval(function () {
+                scrollTop -= 100;
+                // 再给滚动条赋值
+                document.documentElement.scrollTop = scrollTop;
+                document.body.scrollTop = scrollTop;
+                if (scrollTop <= 0) {
+                    clearInterval(timer);
+                }
+            }, 10);
+        }
+
+    </script>
+</body>
+
+</html>

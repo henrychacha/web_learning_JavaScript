@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 300px;
+            background-color: yellow;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+    <script>
+        // 需求：点击按钮，盒子显示; 点击页面的任何地方，盒子隐藏
+        // 阻止冒泡：写在触发冒泡的函数里面
+        // 标准浏览器：ev.stopPropagation();
+        // IE8及以下：ev.cancelBubble = true;
+
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        // 点击按钮显示
+        btn.onclick = function (ev) {
+            box.style.display = 'block';
+
+            // 阻止冒泡，都是事件对象下面的方法或属性
+            var ev = ev || event;
+            // ev.stopPropagation(); // 标准浏览器
+            // ev.cancelBubble = true; // IE8及以下
+
+            stopPropagation(ev);
+        }
+
+        // 点击页面中的任何地方，盒子隐藏
+        document.onclick = function () {
+            box.style.display = 'none';
+        }
+
+        // 阻止冒泡兼容，接收事件对象为参数
+        function stopPropagation(ev) {
+            if (ev.stopPropagation) {
+                ev.stopPropagation(); // 标准浏览器
+            } else {
+                ev.cancelBubble = true; // IE8及以下
+            }
+        }
+    </script>
+</body>
+
+</html>

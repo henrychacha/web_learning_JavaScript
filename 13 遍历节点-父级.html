@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 40px 50px;
+        }
+
+        .box1 {
+            background: red;
+        }
+
+        .box2 {
+            background: yellow;
+        }
+
+        .box3 {
+            background: green;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 根据子元素，查找元素的父节点以及所有的父级节点，parents()可以接收一个筛选条件，返回符合条件的父级节点
+            console.log($('.box3').parent()); // 当前元素的父级
+            console.log($('.box3').parents()); // 当前元素所有的祖先级，一直找到html，它可以接收一个筛选条件
+            console.log($('.box3').parents('.box1')); // 接收筛选条件
+
+            console.log($('.box3').parentsUntil('body')); // 到哪里为止
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

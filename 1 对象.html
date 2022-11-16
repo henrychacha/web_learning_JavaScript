@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 对象的组成：
+        // 属性：对象的特征描述，静态，名词
+        // 方法：对象的行为，动态，就是函数
+        // var obj = {
+        //     name: '张三',
+        //     age: 3,
+        //     fn: function () {
+        //         console.log('前端开发');
+        //     }
+        // };
+        // console.log(obj); // {name: "张三", age: 3, fn: ƒ}
+
+
+        // console.log(window); // {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
+
+
+        // ----------------------------------------
+        // 对象的读写
+        var obj = {
+            name: '张三',
+            age: 3,
+            fn: function () {
+                console.log('前端开发');
+            }
+        };
+
+        // 读
+        console.log(obj.name);
+        console.log(obj['name']);
+
+        var a = 'age';
+        console.log(obj[a]);
+
+        // ---------------------
+        // 写
+        obj.name = '李四';
+        console.log(obj);
+
+
+        // -----------------------
+        // 对象的遍历
+        for (var attr in obj) {
+            console.log(attr, obj[attr]);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // []只代表一个字母
+        var re1 = /[a-z]/; // 小写字母
+        var re2 = /[A-Z]/; // 大写字母
+        var re3 = /[0-9]/; // 数字
+        var re4 = /[a-zA-Z0-9]/; // 大小写字母和数字
+
+        var re5 = /[abc]/; // 匹配a b c任意一个字符
+
+        var str = 'abcd';
+        var re = /a[abcd]cd/;
+        console.log(re.test(str));
+
+        var str = 'a cd';
+        var re = /a[^abcd]cd/; // 排除a b c d，其它的均可
+        console.log(re.test(str));
+
+
+        // --------------------------------------
+        var str = 'ujiuye';
+
+        var re = /u[a-z]*jiuye/; // 任意个a-z的字符
+        console.log(re.test(str));
+
+        var re = /u[^0-9]*ye/; // 任意多个0-9以外的字符
+        console.log(re.test(str));
+
+        // ------------------------
+        var str = 'ujiuUye';
+        var re = /[a-z][A-Z]+/;
+        console.log(re.test(str));
+        console.log(str.match(re)); // [ "uU" ]
+
+
+    </script>
+</body>
+
+</html>

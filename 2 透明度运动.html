@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/timg.jpg" id="box">
+
+    <script>
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj)[attr];
+            } else {
+                return obj.currentStyle[attr];
+            }
+        }
+
+        function move(obj, attr, target, callback) {
+            clearInterval(obj.timer); // 先清后开
+            obj.timer = setInterval(function () {
+
+                var iNow = getStyle(obj, 'opacity') * 100; // 0.3 * 100    当前的位置
+                var dir = iNow < target ? 10 : -10; // 方向 步长
+                var speed = iNow + dir; // 下次应该运动到的位置
+
+                if ((speed >= target && dir > 0) || (speed <= target && dir < 0)) {
+                    speed = target;
+                }
+
+                obj.style.opacity = speed / 100;
+                obj.style.filter = 'alpha(opacity=' + speed + ')';
+
+                if (speed === target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+            }, 30);
+        }
+
+        var box = document.getElementById('box');
+        box.onclick = function () {
+            // 因为透明度是0--1，不太好处理，所以我们扩大100倍，即把0-1变成0-100来处理
+            // console.log(getStyle(box, 'opacity') * 100); // 30
+
+            move(box, 'opacity', 100, function () {
+                console.log('我不透明了');
+            })
+        }
+    </script>
+</body>
+
+</html>

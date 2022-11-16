@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Number类型即数值类型，主要用于存储数据和数学运算
+
+        // 普通整数、小数、负数都是数字
+        var num1 = 10;
+        var num2 = 0.5;
+        var num3 = -3;
+        console.log(num1, typeof num1); // 10 number
+        console.log(num2, typeof (num2)); // 0.5 number
+        console.log(num3, typeof num3); // -3 number
+
+        var num4 = 070; // 八进制
+        console.log(num4, typeof num4); // 56 number
+
+        // ----------------------------------------
+
+        var n = '小王' - 5; // 减法，你的本意是想得到一个数字，但是这里没有办法给你一个数字，只能给你一个NaN。NaN不是一个数字，但它是数字类型，typeof的时候返回number
+        console.log(n, typeof n); // NaN  (not a number, 不是一个数字)
+        console.log(n == n); // false 假（和谁都不相等，包括它自己）
+        console.log(5 + n); // NaN (任何涉及NaN的操作结果都是NaN)
+        // 注意：
+        // 1、NaN和谁都不相等(包括它自己)
+        // 2、任何涉及NaN的操作都返回NaN
+        // 3、typeof查看时返回number
+
+        // -------------------------------------
+        console.log(1 / 0); // Infinity 无穷大
+        console.log(-1 / 0); // -Infinity 无穷小
+
+        // -------------------------
+        var m = 0.1 + 0.2;
+        console.log(m); // 0.30000000000000004 
+        // 不要做0.1 + 0.2 == 0.3这样的判断
+
+
+    </script>
+</body>
+
+</html>

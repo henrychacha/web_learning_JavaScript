@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" class="abc" title="我是平头哥" abc="唱山歌">我就是我</div>
+
+    <script>
+        // 操作元素的属性
+        var box = document.getElementById('box');
+
+        // --------------------------------
+        // 1、点的形式(不能操作自定义属性)
+        // 获取：元素.属性名
+        // 设置：元素.属性名 = 值
+        // console.log(box.title);
+        // box.title = '请多关照';
+        // console.log(box.abc);  // undefined
+
+
+        // ------------------------------
+        // 2、中括号的形式(不能操作自定义属性)
+        // 获取：元素['属性名']
+        // 设置：元素['属性名'] = 值
+        // console.log(box['title']);
+        // box['title'] = '不一样的烟火';
+        // console.log(box['abc']); // undefined
+
+        // -----------------------------
+        // 3、attribute(即可以操作自定义的属性，也可以操作原生的属性)
+        // 获取：元素.getAttribute('属性名');
+        // 设置：元素.setAttribute('属性名', 值);
+        // 删除：元素.removeAttribute('属性名');
+
+        console.log(box.getAttribute('abc'));
+        box.setAttribute('abc', '1+1=2');
+        box.setAttribute('ddd', '就是好就是好');
+        box.removeAttribute('abc');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 120px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 需求：封装(写)一个方法(函数)，用于获取元素的样式
+        // 思考：如何获取元素的样式？
+        // 1、元素.style.样式名 只能获取行间的
+        // 2、getComputedStyle(元素).样式名  IE8及以下不支持
+        // 3、元素.currentStyle.样式名  所有IE支持
+
+        // ---------------------------------------
+        var box = document.getElementById('box');
+
+        // 标准浏览器支持
+        // getComputedStyle(元素).样式名  Computed 计算
+        // console.log(getComputedStyle(box).width);
+        // console.log(getComputedStyle(box).height);
+        // console.log(getComputedStyle(box).backgroundColor);
+
+
+        // IE支持
+        // 元素.currentStyle.样式名     current当前
+        // console.log(box.currentStyle.width);
+        // console.log(box.currentStyle.height);
+        // console.log(box.currentStyle.backgroundColor);
+
+
+        // ------------------------------------
+        // 有的浏览器支持getComputedStyle，有的支持currentStyle，我们需要判断
+        // 如何判断：getComputedStyle是window下面的方法
+        // console.log(window.getComputedStyle); // 在IE9及以上返回一个函数，在IE8及以下返回undefined
+        // if (window.getComputedStyle) {
+        //     // IE9及以上
+        // } else {
+        //     // IE8及以下
+        // }
+
+
+        // ---------------------------------
+        // 封装函数，实现获取元素的样式（注意只能获取单一的样式，如background复合样式不能获取，只能获取background-color）
+        // 这个函数接收两个参数，一个是元素，一个是样式
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                // IE9及以上
+                return getComputedStyle(obj)[attr];
+            } else {
+                // IE8及以下
+                return obj.currentStyle[attr];
+            }
+        }
+
+        console.log(getStyle(box, 'width'));
+        console.log(getStyle(box, 'height'));
+        console.log(getStyle(box, 'background-color'));
+
+
+
+
+    </script>
+</body>
+
+</html>

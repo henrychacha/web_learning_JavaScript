@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 同原生的innerHTML
+            // jQuery对象.html(值); // 设置
+            // jQuery对象.html(); // 获取
+            console.log($('#box').html()); // 获取
+            $('#box').html('不一样的<b>烟火</b>'); // 设置
+
+            // -------------------------
+            // 同原生的innerText
+            // jQuery对象.text(值); // 设置
+            // jQuery对象.text(); // 获取
+            console.log($('#box').text());
+            $('#box').text('不一样的<b>烟火</b>');
+
+            // --------------------------
+            // 同原生的value
+            // jQuery对象.val(值); // 设置
+            // jQuery对象.val(); // 获取
+            $('input').val('平头哥');
+            console.log($('input').val());
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="box">我就是我</div>
+
+    <input type="text">
+</body>
+
+</html>

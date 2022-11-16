@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    #canvas1{
+        /* border: 1px solid blue; */
+        animation: ani 3s linear infinite ;
+    }
+    @keyframes ani {
+        0%{
+            transform: rotate(0);
+        }
+        100%{
+            transform:rotate(360deg)
+        }
+    }
+</style>
+<body >
+    <canvas id="canvas1">显示出这里，代表浏览器该升级了。</canvas>
+
+   <script>
+
+    //1. 获取canvas标签对象
+    var canvas = document.getElementById('canvas1')
+    canvas.width = 400
+    canvas.height = 400
+    //2. 获取画笔对象| 画布的上下文对象
+    var ctx = canvas.getContext('2d')
+
+    var rx = 200,ry=200,r=200
+
+    //第1个大圆
+    ctx.beginPath()
+    ctx.arc(rx,ry,r,0,2*Math.PI)
+    ctx.stroke()
+
+    //第2个黑色的半圆
+    ctx.beginPath()
+    ctx.arc(rx,ry,r,-90/180*Math.PI,90/180*Math.PI)
+    ctx.fill()
+
+    //第3个上部的黑色的圆
+    ctx.beginPath()
+    ctx.arc(200,100,100,0,2*Math.PI)
+    ctx.fill()
+
+    
+    //第4个下部的白色的圆
+    ctx.beginPath()
+    ctx.arc(200,300,100,0,2*Math.PI)
+    ctx.fillStyle = '#fff'
+    ctx.fill()
+
+    //第5个上部的小圆
+    ctx.beginPath()
+    ctx.arc(200,100,30,0,2*Math.PI)
+    ctx.fillStyle = '#fff'
+    ctx.fill()
+
+     //第6个下部的小圆
+     ctx.beginPath()
+    ctx.arc(200,300,30,0,2*Math.PI)
+    ctx.fillStyle = '#000'
+    ctx.fill()
+
+   </script>
+</body>
+</html>

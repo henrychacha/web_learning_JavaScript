@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <script>
+        // 需求：在盒子上滚动滚轮，向上滚，盒子的高度减小，向下滚，盒子的高度增加
+
+        // 滚动事件
+        // 标准浏览器和IE：元素.onmousewheel = 函数;
+        // 滚轮方向：ev.wheelDelta   上：120   下：-120
+
+        // 火狐：元素.addEventListener('DOMMouseScroll', 函数, false);  火狐必须用addEventListener绑定
+        // 滚轮方向：ev.detail     上：-3   下：3
+
+        var box = document.getElementById('box');
+
+        // 标准浏览器和IE
+        box.onmousewheel = function (ev) {
+            var ev = ev || event;
+            // console.log(ev.wheelDelta);
+            console.log(wheelDelta(ev));
+
+        }
+
+        // 火狐
+        box.addEventListener('DOMMouseScroll', function (ev) {
+            // console.log(ev.detail);
+            console.log(wheelDelta(ev));
+        }, false);
+
+        // ---------------------------
+        // 滚轮方向的兼容，参数为事件对象，上：120   下：-120
+        function wheelDelta(ev) {
+            if (ev.wheelDelta) {
+                // IE和谷歌
+                return ev.wheelDelta; // 上：120   下：-120
+            } else {
+                // 火狐
+                return -40 * ev.detail; // 上：-3   下：3
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

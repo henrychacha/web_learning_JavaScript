@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // 作用1：对象合并
+        // $.extend(dest, src1, src2, src3...); // src1 src2 src3都合并到dest上面
+        // 返回合并以后的对象
+
+        var obj1 = {
+            a: 1,
+            b: 2
+        }
+        var obj2 = {
+            c: 3
+        }
+        var obj3 = {
+            a: 2,
+            d: 4
+        }
+
+        // $.extend(obj1, obj2, obj3); // obj2 obj3合并到obj1上，它修改了obj1
+        // console.log(obj1); // { a: 2, b: 2, c: 3, d: 4 }
+
+        // 推荐做法
+        var o = $.extend({}, obj1, obj2, obj3);
+        console.log(o); //  { a: 2, b: 2, c: 3, d: 4 }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

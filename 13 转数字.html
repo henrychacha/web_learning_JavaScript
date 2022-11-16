@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Number()方法只能转换纯数字字符串或者空字符串，其它均返回NaN。这样不太智能，所以我们有以下两个方法
+        // parseInt(字符串, 进制); 转成整数（不识别小数点）
+        // parseFloat(字符串); 转成小数(识别一个小数点)
+
+        // 解析规则：从左向右解析，尽其所能。一位一位的看，如果是数字，则提出来，如果不是数字，则到此为止。如果第一位都不是数字，则返回NaN，前后的空格忽略
+
+        console.log(parseInt('12.25元')); // 12
+        console.log(parseInt('a10')); // NaN
+        console.log(parseInt('12ab34')); // 12
+        console.log(parseInt('   12ab34')); // 12
+
+        console.log(parseInt('070')); // 在IE8及以下，返回56，因为它认为这是一个8进制的数字
+        console.log(parseInt('070', 10)); // 70，加上第二个参数，在所有浏览器下均返回70。建议任何时候都加上第二个参数
+
+        // -------------------------------
+
+        console.log(parseFloat('12.25亿')); // 12.25
+        console.log(parseFloat('12.2.5亿')); // 12.2
+
+
+    </script>
+</body>
+
+</html>

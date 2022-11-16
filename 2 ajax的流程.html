@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 1、创建ajax
+        var xhr = new XMLHttpRequest();
+
+        // 2、open(打开方式 get/post, url地址, 是否异步);
+        xhr.open('get', 'data/1.txt', true);
+
+        // 3、send() 发送
+        xhr.send();
+
+        // 4、等待服务器返回
+        // A、事件：xhr.onreadystatechange，只要ajax的状态发生变化，就会执行
+
+        // B、ajax的状态：xhr.readyState ，状态一共是5种，分别用0 1 2 3 4代表
+        // 0	（初始化）还没有调用open()方法
+        // 1	（载入）已调用send()方法，正在发送请求
+        // 2	（载入完成）send()方法完成，已收到全部响应内容
+        // 3	（解析）正在解析响应内容
+        // 4	（完成）响应内容解析完成，可以在客户端调用了
+
+        // C、服务器状态码：xhr.status
+        // 1XX系列：指定客户端应响应的某些动作，代表请求已被接受，需要继续处理。由于 HTTP/1.0 协议中没有定义任何 1xx 状态码，所以除非在某些试验条件下，服务器禁止向此类客户端发送 1xx 响应。
+        // 2XX系列：代表请求已成功被服务器接收、理解、并接受。这系列中最常见的有200、201状态码。
+        // 3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 location 域中指明。这系列中最常见的有301、302状态码。
+        // 4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。常见有：401、404状态码。
+        // 5XX系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。常见有500、503状态码。
+
+        // D、xhr.responseText  服务器返回的内容（字符串）
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) { // ajax状态码
+                if (xhr.status === 200) { // 服务器状态码
+                    // 5、可以在页面中使用返回的数据了
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

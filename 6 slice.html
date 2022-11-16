@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 格式：字符串.slice(起始下标，结束下标);
+        // 作用: 用于提取字符串中介于两个指定下标之间的字符（截取字符串）
+        // 同substring的区别：
+        // 1、如果第一个参数比第二个参数大，则返回空字符。substring则交位置
+        // 2、参数为负数，则与长度相加。substring则为0
+
+        var str = 'abcdefg';
+        console.log(str.slice(2)); // cdefg  一个参数，从参数处开始，到结束
+        console.log(str.slice(2, 5)); // cde 2个参数，从第一个参数处起，到第二个参数处止，不包括第二个参数
+        console.log(str.slice(5, 2)); // <empty string> 如果第一个参数比第二个参数大，则返回空字符
+        console.log(str.slice(-5, 5)); // cde  参数为负数，则与长度相加
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Number(任何变量)
+        // 可以将任何数据类型转换成数字，只有能转成功或不能转成功之分，如果能转成功，返回数字，不能转成功，返回NaN
+        // 不影响原数据
+
+        // 1、字符串如果全是数字(包括小数点)转成数字；如果有不是数字的，转成NaN，空字符串和空格转成0
+        // 2、true转成1， false转成0
+        // 3、数字简单的返回
+        // 4、null转成0
+        // 5、undefined转成NaN
+        // 6、对象一般返回NaN，一般不用来转对象
+
+        var str = '10';
+        var n = Number(str);
+        console.log(n, typeof n); // 10 number
+        console.log(str, typeof str); // 10 string
+
+        console.log(Number('10亿')); // NaN
+        console.log(Number('10.23')); // 10.23
+        console.log(Number('')); // 0
+        console.log(Number(' ')); // 0
+
+        console.log(Number(true)); // 1
+        console.log(Number(false)); // 0
+
+        console.log(Number(null)); // 0
+        console.log(Number(undefined)); // NaN
+
+    </script>
+</body>
+
+</html>

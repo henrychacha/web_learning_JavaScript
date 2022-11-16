@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="js/ajax.js"></script>
+    <script>
+        ajax('get', 'data/data.json', null, function (data) {
+            console.log(data);
+            // ajax返回回来的永远是字符串，即便你写的像一个对象，哪返回的也是一个字符串
+            // 我们有时需要将长得像对象的字符串，变成对象
+            // console.log(typeof data);
+            console.log(JSON.parse(data));
+        })
+    </script>
+</body>
+
+</html>

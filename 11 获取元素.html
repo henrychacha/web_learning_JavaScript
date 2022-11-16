@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li id="box">吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+    <ul>
+        <li>足球</li>
+        <li>篮球</li>
+    </ul>
+
+    <script>
+        // 通过ID：document.getElementById('ID名');
+        // 通过标签名：document.getElementsByTagName('标签名');
+        // 通过类名：document.getElementsByClassName('类名');
+
+        // document 文档
+        // get  得到
+        // Element 元素
+
+        // 通过ID
+        var box = document.getElementById('box');
+        console.log(box);
+
+        // 通过标签
+        var aLi = document.getElementsByTagName('li');
+        console.log(aLi); // html的集合(类数组 伪数组，有长度，可以通过下标获取某一个)  [li#box, li, li]
+        console.log(aLi.length);
+        console.log(aLi[0]); // 通过下标获取某一个
+
+        // 需求，给所有的li添加一个背景
+        // aLi.style.backgroundColor = 'red';
+        aLi[0].style.backgroundColor = 'red';
+        aLi[1].style.backgroundColor = 'red';
+        aLi[2].style.backgroundColor = 'red';
+
+
+        // -----------------------------
+        // 只想找第二个ul下面的li
+        // 办法：先获取到第二个ul，再能过这个ul，获取到它下面的li
+        var ul = document.getElementsByTagName('ul')[1];
+        // console.log(ul);
+        var li = ul.getElementsByTagName('li');
+        console.log(li);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

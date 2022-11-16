@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：字符串.replace(正则, 新的字符串);
+        // 作用：用新的字符串替换正则对应的字符，返回替换以后的结果
+        // 它的第二个参数除了是字符串以外，还可以是一个函数，函数的第一个参数就是匹配成功的字符，第二个参数是第一个小括号，以此类推
+
+        var str = 'hello world';
+        var re = /(wor)(ld)/;
+
+        // 第二个参数是字符串
+        console.log(str.replace(re, '世界')); // hello 世界
+
+        // 第二个参数是函数
+        var s = str.replace(re, function ($0, $1, $2) {
+            console.log($0); // world 函数的第一个参数，就是匹配成功的字符
+            console.log($1); // wor  函数的第二个参数，就是正则中的第一个小括号
+            console.log($2); // ld   函数的第三个参数，就是正则中的第二个小括号
+            return '平头哥';
+            // return $1.toUpperCase();
+        });
+        console.log(s);
+
+
+
+
+    </script>
+</body>
+
+</html>

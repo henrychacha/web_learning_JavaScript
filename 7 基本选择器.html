@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 基本选择器是jQuery中最常用的选择器，也是最简单的选择器，它通过元素id、class和标签名等来查找DOM元素。可以使用这些选择器来完成绝大多数的工作。
+            // $(css选择器)
+            $('#box').css('background', 'red');
+            $('.abc').css('background', 'yellow');
+            $('li').css('background', 'green');
+            $('#box, .abc, ul').css('font-size', '40px');
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box">平头哥</div>
+    <p class="abc">p</p>
+    <ul class="b1">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <ul class="b2">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</body>
+
+</html>

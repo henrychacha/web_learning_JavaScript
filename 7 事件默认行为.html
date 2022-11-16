@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="https://www.baidu.com/">百度</a>
+
+    <script>
+        // 事件的默认行为：即赋予了元素的特殊操作。
+        // 比如：点击链接，会打开页面。鼠标右键会展示一个菜单
+
+        // 如果有些不是我们想要的，我们可以阻止事件的默认行为
+        // 元素.事件                return false;
+        // 元素.addEventListener    ev.preventDefault();
+        // 元素.attachEvent         ev.returnValue = false;
+
+        var a = document.querySelector('a');
+        a.onclick = function (ev) {
+            var ev = ev || event;
+            // return false;
+            // ev.preventDefault();
+            // ev.returnValue = false;
+            preventDefault(ev);
+        }
+
+        function preventDefault(ev) {
+            if (ev.preventDefault) {
+                ev.preventDefault(); // 标准浏览器
+            } else {
+                ev.returnValue = false; // IE8及以下
+            }
+        }
+    </script>
+</body>
+
+</html>

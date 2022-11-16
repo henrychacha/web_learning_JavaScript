@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>谁敢点我</p>
+
+    <script>
+        // 删除节点：父元素.removeChild(被删除的元素);
+        // 返回被删除的元素，方便下次调用
+
+        var p = document.querySelector('p');
+        p.onclick = function () {
+            var abs = p.parentNode.removeChild(p); // 删除
+
+            setTimeout(function () {
+                document.body.appendChild(abs); // 5秒钟以后，再添加进来
+            }, 5000);
+        }
+
+    </script>
+</body>
+
+</html>

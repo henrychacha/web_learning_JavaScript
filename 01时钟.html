@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #canvas {
+      border: 1px solid red;
+    }
+  </style>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      canvas.width = 400;
+      canvas.height = 400;
+      var x = canvas.width / 2;
+      var y = canvas.height / 2;
+      var r = 180;
+      //['Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ', 'Ⅶ', 'Ⅷ', 'Ⅸ', 'X', 'Ⅺ', 'Ⅻ', 'Ⅰ', 'Ⅱ']
+      
+     setInterval(drawClock,1000)
+
+      function drawClock() {
+        
+        let t = new Date();
+        let h = t.getHours();
+        let m = t.getMinutes();
+        let s = t.getSeconds();
+
+        let hAngle = ((-90 + h * 30 + m/2 ) / 180) * Math.PI;
+        let mAngle = ((-90 + m * 6) / 180) * Math.PI;
+        let sAngle = ((-90 + s * 6) / 180) * Math.PI;
+        ctx.clearRect(0,0,canvas.width,canvas.height)
+        //绘制60个刻度
+        ctx.beginPath();
+        ctx.strokeStyle = 'black'
+        ctx.lineWidth = 1
+        for (var i = 0; i <= 60; i++) {
+          //60个刻度，每一个刻度 6=360/60
+          ctx.moveTo(200, 200);
+          ctx.arc(
+            x,
+            y,
+            r,
+            ((i * 6) / 180) * Math.PI,
+            (((i + 1) * 6) / 180) * Math.PI,
+            false
+          );
+          ctx.closePath()
+        }
+        ctx.stroke();
+
+        //铺一个白色的圆
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(x, y, (r * 19) / 20, 0, 2 * Math.PI, false);
+        ctx.fill();
+
+        //绘制12个刻度
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'black'
+
+        for (var i = 0; i <= 12; i++) {
+          //12个刻度 每一个刻度 30=360/12
+          ctx.moveTo(200, 200);
+          ctx.arc(
+            x,
+            y,
+            r,
+            ((i * 30) / 180) * Math.PI,
+            (((i + 1) * 30) / 180) * Math.PI,
+            false
+          );
+          ctx.closePath()
+        }
+        ctx.stroke();
+
+        //铺一个白色的圆
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(x, y, (r * 18) / 20, 0, 2 * Math.PI, false);
+        ctx.fill();
+
+        //绘制一个秒针
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.strokeStyle = 'black'
+        ctx.lineWidth = 1
+        ctx.arc(x, y, (r * 18) / 20, sAngle, sAngle, false);
+        ctx.stroke();
+
+        //绘制一个分针
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.strokeStyle = 'black'
+        ctx.lineWidth = 2
+        ctx.arc(x, y, (r * 16) / 20, mAngle, mAngle, false);
+        ctx.stroke();
+
+        //绘制一个时针
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.strokeStyle = 'black'
+        ctx.lineWidth = 4
+        ctx.arc(x, y, (r * 12) / 20, hAngle, hAngle, false);
+        ctx.stroke();
+
+        //绘制一个圆点
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, 2 * Math.PI, false);
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "white";
+        
+        //绘制数字刻度文本
+        let numsText = ['Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ', 'Ⅶ', 'Ⅷ', 'Ⅸ', 'X', 'Ⅺ', 'Ⅻ', 'Ⅰ', 'Ⅱ']
+
+        ctx.save()
+        ctx.beginPath()
+        ctx.fillStyle = 'black'
+        ctx.translate(x,y)
+        ctx.font="20px 楷体"
+        ctx.textAlign = 'center'
+        numsText.forEach((item,index)=>{
+            let disx = Math.cos( index*30/180*Math.PI ) * r* 16/20
+            let disy = Math.sin( index*30/180*Math.PI ) * r * 16/20
+            ctx.fillText(item,disx,disy)
+        })
+
+        ctx.restore()
+      }
+    </script>
+  </body>
+</html>

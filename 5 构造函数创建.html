@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 构造函数创建
+        // 构造函数创建的特点
+        // 1、构造函数首字母大写（人为规定，这样一眼就能看出这个是构造函数，小写的就普通函数）
+        // 2、构造函数里面没有显示创建对象（new Object()）
+        // 3、属性和方法直接赋给this
+        // 4、构造函数中没有return，不需要返回
+        // 5、构造函数调用时，必须要通过new来调用(如果忘了写new，则就是普通函数调用)
+
+        // 通过new调用CreateObject，到底做了哪结事（经过了哪几步）？
+        // (1) 创建一个新对象；
+        // (2) 将构造函数的作用域赋给新对象（ this 指向新对象）；
+        // (3) 执行构造函数中的代码（为这个新对象添加属性）；
+        // (4) 返回新对象。
+        function CreateObject(name, age) {
+            this.name = name;
+            this.age = age;
+            this.eat = function () {
+                console.log('吃西瓜');
+            }
+        }
+
+        // 调用产生实例
+        var p1 = new CreateObject('张三', 3);
+        console.log(p1); //  {name: "张三", age: 3, eat: ƒ}
+
+        var p2 = new CreateObject('李四', 5);
+        console.log(p2); // {name: "李四", age: 5, eat: ƒ}
+
+        // --------------------------------
+        // 构造函数解决了对象的识别问题
+        console.log(p1 instanceof CreateObject); // true
+        console.log(p1 instanceof Object); // true
+
+        // -----------------------------
+        // 构造函数不足：同一个方法，每次创建都要声明一次，这样占用内存
+        p1.eat();
+        p2.eat();
+        // alert(p1.eat);
+        // alert(p2.eat);
+        console.log(p1.eat == p2.eat); // false
+
+
+        // console.log(function () { } == function () { }); // false
+        // console.log([] == []); // false
+
+
+
+
+
+    </script>
+</body>
+
+</html>

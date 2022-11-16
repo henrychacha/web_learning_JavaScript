@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
+
+        #abc {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            left: 500px;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="abc"></div>
+
+    <script>
+        var box = document.getElementById('box');
+        var abc = document.getElementById('abc');
+
+        // 静止盒子的四个边
+        var L2 = abc.offsetLeft;
+        var T2 = abc.offsetTop;
+        var R2 = L2 + abc.clientWidth;
+        var B2 = T2 + abc.clientHeight;
+        // console.log(L2, T2, R2, B2);
+
+
+        // 按下
+        box.onmousedown = function (ev) {
+            var ev = ev || event;
+
+            // 兼容IE8及以下，设置全局捕获
+            if (box.setCapture) {
+                box.setCapture();
+            }
+
+            // 可视区的宽高
+            var clientW = document.documentElement.clientWidth;
+            var clientH = document.documentElement.clientHeight;
+
+            // 盒子的宽高
+            var boxW = box.clientWidth;
+            var boxH = box.clientHeight;
+
+            var disX = ev.clientX - box.offsetLeft; // 鼠标到盒子的距离
+            var disY = ev.clientY - box.offsetTop;
+
+            // 拖动
+            document.onmousemove = function (ev) {
+                var ev = ev || event;
+                var x = ev.clientX - disX;
+                var y = ev.clientY - disY;
+
+                if (x < 0) {
+                    x = 0;
+                } else if (x > clientW - boxW) {
+                    x = clientW - boxW
+                }
+                if (y < 0) {
+                    y = 0;
+                } else if (y > clientH - boxH) {
+                    y = clientH - boxH;
+                }
+
+                // 取得运动盒子的四个边
+                var L1 = x;
+                var T1 = y;
+                var R1 = L1 + boxW;
+                var B1 = T1 + boxH;
+                // console.log(L1, T1, R1, B1);
+
+                // 排除法，如果碰上了，改颜色，碰不上，改回原来的颜色
+                if (R1 < L2 || B1 < T2 || L1 > R2 || T1 > B2) {
+                    abc.style.backgroundColor = 'pink';
+                } else {
+                    abc.style.backgroundColor = 'green';
+                }
+
+                box.style.left = x + 'px';
+                box.style.top = y + 'px';
+            }
+
+            // 抬起
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                // 兼容IE8及以下，释放全局捕获
+                if (box.releaseCapture) {
+                    box.releaseCapture();
+                }
+            }
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var str = 'ujiuye';
+        var re = /u\w*ye/; // 匹配0或多个数字、字母、下划线
+        console.log(re.test(str));
+        console.log(str.match(re)); // [ "ujiuye" ]
+
+        // -----------------------------------
+        var str = 'ujiuye12';
+        var re = /ye\d+/; // 匹配ye后面至少一个数字
+
+        console.log(re.test(str));
+        console.log(str.match(re)); // [ "ye12" ]
+
+        // -----------------
+        var str = 'ujiuyeujiuye';
+        var re = /\D{5,}/;
+        console.log(str.match(re)); //  [ "ujiuyeujiuye" ]
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            background-color: #ccc;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .active {
+            background: red;
+            color: white;
+        }
+
+        #box div {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #ccc;
+            font-size: 50px;
+            line-height: 150px;
+            text-align: center;
+            display: none;
+        }
+
+        #box div.show {
+            display: block;
+        }
+    </style>
+
+    <script>
+        // window.onload = function () {
+        //     var box = document.getElementById('box');
+        //     var span = box.getElementsByTagName('span');
+        //     var div = box.getElementsByTagName('div');
+
+        //     for (var i = 0; i < span.length; i++) {
+        //         span[i].index = i; // 自定义下标
+        //         span[i].onclick = function () {
+        //             // 1、所有的span去掉样式，所有的div隐藏
+        //             for (var i = 0; i < span.length; i++) {
+        //                 span[i].className = '';
+        //                 div[i].className = '';
+        //             }
+
+        //             // 2、对应的span添加样式，对应的div显示
+        //             this.className = 'active';
+        //             div[this.index].className = 'show';
+        //         }
+        //     }
+        // }
+
+
+        // --------------------------------
+        // 普通方法变形
+        var box = null;
+        var span = null;
+        var div = null;
+
+        window.onload = function () {
+            box = document.getElementById('box');
+            span = box.getElementsByTagName('span');
+            div = box.getElementsByTagName('div');
+            init();
+        }
+
+        function init() {
+            for (var i = 0; i < span.length; i++) {
+                span[i].index = i; // 自定义下标
+                span[i].onclick = change;
+            }
+        }
+
+        function change() {
+            // 1、所有的span去掉样式，所有的div隐藏
+            for (var i = 0; i < span.length; i++) {
+                span[i].className = '';
+                div[i].className = '';
+            }
+
+            // 2、对应的span添加样式，对应的div显示
+            this.className = 'active';
+            div[this.index].className = 'show';
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <span class="active">html</span>
+        <span>css</span>
+        <span>js</span>
+        <div class="show">html</div>
+        <div>css</div>
+        <div>js</div>
+    </div>
+</body>
+
+</html>

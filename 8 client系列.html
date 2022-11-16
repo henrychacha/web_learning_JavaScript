@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 盒子本身的宽高：
+        // getComputedSt(元素).width
+        // 元素.currentStyle.width
+
+        // ---------------------------------------
+
+        // 可视宽高
+        // 元素.clientWidth     width + padding
+        // 元素.clientHeight    height + padding
+
+        var box = document.getElementById('box');
+        console.log(box.clientWidth); // 120
+        console.log(box.clientHeight); // 120
+
+        console.log(box.clientTop); // 元素顶边的边框宽度
+        console.log(box.clientLeft); // 元素左边的边框宽度
+
+
+
+        // ------------------------------
+        // 屏幕的可视宽高(html的可视宽高)
+        // console.log(document.body); // body标签
+        // console.log(document.documentElement); // html标签
+        // alert(document.documentElement.clientWidth);
+        // alert(document.documentElement.clientHeight);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

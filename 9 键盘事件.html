@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+
+    <script>
+        // 键盘事件中，常用的是keydown keyup
+        // keydown键盘按下
+        // keyup键盘抬起
+        // 键盘事件要在能响应用户输入的元素上触发
+
+        var input = document.querySelector('input');
+        input.onkeydown = function () {
+            // console.log(1);
+            console.log(this.value);
+        }
+        input.onkeyup = function () {
+            // console.log(2);
+            console.log(this.value);
+        }
+
+        // ----------------------------
+        // 键盘事件的事件对象
+        input.onkeydown = function (ev) {
+            var ev = ev || event;
+            console.log(ev.keyCode); // 按键对应的编码 
+            // a:65 z:90  0:48  9:57  回车：13   左：37  上：38  右：39  下：40
+            // 空格：32  esc:27
+
+            console.log(ev.shiftKey); // 是否按下了shift键
+            console.log(ev.altKey);
+            console.log(ev.ctrlKey);
+
+        }
+
+    </script>
+</body>
+
+</html>

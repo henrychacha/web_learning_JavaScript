@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    #canvas1{
+        border: 1px solid blue;
+    }
+</style>
+<body >
+    <canvas id="canvas1">显示出这里，代表浏览器该升级了。</canvas>
+
+   <script>
+
+    //1. 获取canvas标签对象
+    var canvas = document.getElementById('canvas1')
+    canvas.width = 400
+    canvas.height = 400
+    //2. 获取画笔对象| 画布的上下文对象
+    var ctx = canvas.getContext('2d')
+
+    //translate()  roate()  scale() 针对于整个画布的
+    ctx.save()//先保存之前的环境状态
+    ctx.translate(100,100)
+    ctx.fillRect(0,0,150,150)
+    
+    ctx.restore()//回到保存之前的状态
+    
+    ctx.rotate( 30/180*Math.PI )
+    ctx.scale(0.3,0.3)
+    ctx.fillRect( 0,0,50,50 )
+   </script>
+</body>
+</html>

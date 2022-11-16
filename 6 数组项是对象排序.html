@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var arr = [
+            { "date": "2018-08-01", "DIU": 1209, "country": "US" },
+            { "date": "2018-08-02", "DIU": 680, "country": "GB" },
+            { "date": "2018-08-01", "DIU": 2311, "country": "CN" },
+            { "date": "2018-08-02", "DIU": 879, "country": "US" },
+            { "date": "2018-08-03", "DIU": 1525, "country": "CN" },
+            { "date": "2018-08-02", "DIU": 1525, "country": "CN" }
+        ];
+
+        // 数组项是对象，依据对象的某个key值进行排序
+        // 需求：按date进行降序排序，如果date一样，按DIU进行降序排序
+
+        // 1、要将'2018-08-02'转成时间戳
+        // console.log(Date.parse('2018-08-02'));
+
+        arr.sort(function (a, b) {
+            var n1 = Date.parse(a.date);
+            var n2 = Date.parse(b.date);
+            if (n1 === n2) {
+                return b.DIU - a.DIU;
+            } else {
+                return n2 - n1;
+            }
+        });
+        console.log(arr);
+
+        // --------------------------------------------
+        var arr = [
+            { name: '武丽昕', num: 78 },
+            { name: '汤文博', num: 38 },
+            { name: '5卢文博', num: 58 },
+            { name: '邓钧键', num: 97 },
+            { name: 'c刘继昂', num: 56 },
+            { name: '栗军安', num: 78 },
+            { name: '屈晓月', num: 98 },
+            { name: '付秋萍', num: 79 }
+        ];
+        // 按num排序
+        // arr.sort(function (a, b) {
+        //     return a.num - b.num;
+        // });
+        // console.log(arr);
+
+        // 按中文排序
+        arr.sort(function (a, b) {
+            return a.name.localeCompare(b.name, 'zh');
+        });
+        console.log(arr);
+
+
+
+    </script>
+</body>
+
+</html>

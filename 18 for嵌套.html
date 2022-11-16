@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+    <ul>
+        <li>足球</li>
+        <li>篮球</li>
+    </ul>
+    <ul>
+        <li>苹果</li>
+        <li>梨</li>
+        <li>香蕉</li>
+    </ul>
+
+    <script>
+        // 需求：给前面两个ul下面的li添加一个背景（for套for）
+        // 第一层for循环的是ul，第二层for循环的是li
+        var ul = document.getElementsByTagName('ul');
+
+        for (var i = 0; i < 2; i++) {
+            // console.log(ul[i]);
+            // 第一次循环取得第一个ul，第二次循环取得第二个ul
+            var li = ul[i].getElementsByTagName('li'); // 根据ul，取得对应的li
+            for (var j = 0; j < li.length; j++) {
+                // 这里的循环是循环的ul下面的li
+                li[j].style.backgroundColor = 'green';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

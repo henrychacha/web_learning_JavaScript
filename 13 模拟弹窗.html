@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mark {
+            width: 500px;
+            height: 500px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            background: white;
+            position: fixed;
+            z-index: 10;
+        }
+
+        .title {
+            height: 50px;
+            background: #ccc;
+            line-height: 50px;
+        }
+
+        .title h3 {
+            float: left;
+            padding-left: 10px;
+        }
+
+        .title span {
+            float: right;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background: #999;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var body = document.body;
+            var btn = document.querySelector('button');
+            // 可视区宽高
+            var clientW = document.documentElement.clientWidth;
+            var clientH = document.documentElement.clientHeight;
+
+            btn.onclick = function () {
+
+                var title = '请问你是谁？';
+                var message = '我就是传说中的平头哥';
+
+                // 1、创建遮罩层
+                var mark = document.createElement('div');
+                mark.id = 'mark';
+                mark.style.width = clientW + 'px';
+                mark.style.height = clientH + 'px';
+                body.appendChild(mark);
+
+                // 2、创建弹出窗
+                var box = document.createElement('div');
+                box.id = 'box';
+                box.innerHTML = `<div class="title">
+                    <h3>${title}</h3>
+                    <span>X</span>
+                </div>
+                <div class="content">
+                    <p>${message}</p>
+                </div>`;
+                box.style.left = (clientW - 302) / 2 + 'px';
+                box.style.top = (clientH - 202) / 2 + 'px';
+                body.appendChild(box);
+
+                // 3、关闭(删除创建的盒子)
+                var close = box.querySelector('span');
+                // console.log(close);
+                close.onclick = function () {
+                    body.removeChild(mark);
+                    body.removeChild(box);
+                }
+
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>弹窗</button>
+
+    <!-- <div id="mark"></div>
+    <div id="box">
+        <div class="title">
+            <h3>弹出窗</h3>
+            <span>X</span>
+        </div>
+        <div class="content">
+            <p>我是平头哥</p>
+        </div>
+    </div> -->
+
+</body>
+
+</html>

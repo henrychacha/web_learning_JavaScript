@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // +加 -减 *乘 /除 %取余 ++加加 --减减
+
+        // 加，即可以是字符串连接，也可以是加法运算
+        // 1、如果两边都是数字，则就是普通的数学运算
+        // 2、如果有一边是字符串，则另一边也转成字符串，变成字符串的连接
+        // 3、如果没有字符串，则调用Number()方法，转成数字，再进行相加
+        // 4、如果有一边是对象，则调用对象的toString方法，取得对象的字符串表示，再进行计算
+
+        var a = '5';
+        var b = 10;
+        console.log(a + b); // '510'
+
+        console.log(5 + 10); // 15
+
+        console.log(true + false); // 1
+        console.log(true + 'false'); // 'truefalse'
+        console.log(true + ''); // 'true'
+        console.log(null + ''); // 'null'  'null' + ''
+        console.log(null + undefined); // 0 + NaN  NaN
+
+
+        // ---------------------------------------------
+        // ++  自增1
+        // --  自减1
+        // 有加加在前，和加加在后之分。
+        // 加加在前，先自增，再参与表达式的计算
+        // 加加在后，先参与表达式的计算，再自增
+
+        var a = 10;
+        a++; // a = a + 1  // 如果是这样，看不出加加在前和在后的区别
+        ++a; // a = a + 1
+        console.log(a); // 12
+
+        // -----------------------
+        // var num1 = 2;
+        // var num2 = 20;
+        // var num3 = num1++ + num2;  // 1、num3 = num1 + num2   2、num1++
+        // var num4 = num1 + num2; // 3 + 20
+        // console.log(num3, num4);
+
+        var num1 = 2;
+        var num2 = 20;
+        var num3 = ++num1 + num2;  // 1、num1++      2、num3 = num1 + num2
+        var num4 = num1 + num2; // 3 + 20
+        console.log(num3, num4);
+
+        // ---------------------------------
+        // 取模（取余），左右除以右边，得一个余数
+        console.log(10 % 3); // 1
+
+        // -减 *乘 /除
+        // 都是调用Number()方法，转成数字，再进行计算
+        var a = 10;
+        var b = '2';
+        console.log(a - b); // 8
+        console.log(a * b); // 20
+        console.log(a / b); // 5
+
+        console.log(10 - 'ab'); // 10 - NaN  ---- NaN
+        console.log(Number('ab'));
+
+
+
+
+
+    </script>
+</body>
+
+</html>

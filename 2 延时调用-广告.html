@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/pic1.jpg" alt="">
+
+    <script>
+        // setTimeout(function () {
+        //     alert('我执行了');
+        // }, 3000);
+
+        // --------------------------------------
+        var pic = document.querySelector('img');
+
+        pic.onclick = function () {
+            // 1、点击关闭图片
+            pic.style.display = 'none';
+
+            // 2、图片隐藏了之后，隔5秒再显示
+            setTimeout(function () {
+                pic.style.display = 'block';
+            }, 5000);
+        }
+
+    </script>
+</body>
+
+</html>

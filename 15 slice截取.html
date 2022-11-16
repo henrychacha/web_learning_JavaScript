@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 数组.slice(起始下标, 结束下标);
+        // 从数组中截取一段数组
+
+        var arr = [3, 4, 45, 3, 4, 3, 6, 45];
+
+        console.log(arr.slice(2)); // [ 45, 3, 4, 3, 6, 45 ]  从第一个参数处开始，一直到结束
+        console.log(arr.slice(2, 5)); // [ 45, 3, 4 ]  从第一个参数处开始，到第二个参数处止,不包括第二个参数
+        console.log(arr.slice(5, 2)); // [] 如果第一个参数比第二个参数大,则返回[]
+        console.log(arr.slice(-6, 5)); // [ 45, 3, 4 ]   如果参数为负数,则与长度相加
+
+    </script>
+</body>
+
+</html>

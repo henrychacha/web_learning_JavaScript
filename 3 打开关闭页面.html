@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>打开页面</button>
+
+    <script>
+        // 火狐已经不支持js关闭
+
+        // open(url, 打开窗口的方式, 设置新窗口的大小, 新窗口是否取代浏览器记录中的位置)
+        // _self: 当前窗口
+        // _blank: 新窗口
+        // width: 500px; height: 300px;
+        // true / flase
+        // open返回被打开窗口的window对象
+
+        // 窗口对象.close();
+
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            var n = window.open('https://www.baidu.com/', '_blank', 'width=500px,height=300px', true);
+            console.log(n);
+
+
+            setTimeout(function () {
+                // window.close(n);
+                n.close();
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>

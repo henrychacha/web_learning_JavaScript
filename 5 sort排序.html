@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 数组.sort();
+        // sort默认以字符串的方式排序，即便是数字，哪也是以字符串的方式排序
+
+        var arr = [5, 6, 2, 8, 9, 11];
+
+        // 需求：将数组从小到大排序
+
+        // 默认
+        // arr.sort();
+        // console.log(arr); //  [ 11, 2, 5, 6, 8, 9 ]
+
+        // ------------------------------
+
+        // 自定义排序
+        // sort可以接收一个比较函数，比较函数可以实现数组项从小到大、从大到小、随机排序。
+        // 会改变原数组
+
+        // 从小到大(如果a在b的前面，返回一个负数，则a和b不交换位置；如果a在b的后面，则会返回一个正数，则a和b交换位置)
+        // return返回负数，不交换位置，return返回正数，交换位置
+        // arr.sort(function (a, b) {
+        //     return a - b;
+        // });
+        // console.log(arr);
+
+        // 从大到小
+        arr.sort(function (a, b) {
+            return b - a;
+        });
+        console.log(arr);
+
+        // 随机
+        arr.sort(function () {
+            return 0.5 - Math.random();
+        });
+        console.log(arr);
+
+    </script>
+</body>
+
+</html>

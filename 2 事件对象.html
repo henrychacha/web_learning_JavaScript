@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body style="height:3000px;">
+    <div id="box"></div>
+
+    <script>
+        // 事件对象：当一个事件发生的时候，跟这个事件有关的一些信息，保存在一个对象中，这个对象就是事件对象
+        // IE和谷歌：是全局的event对象
+        // 火狐：是事件函数的第一个参数
+
+        var box = document.getElementById('box');
+
+        box.onclick = function (ev) {
+            // console.log(event); // IE和谷歌
+            // console.log(ev); // 火狐(IE8及以下不支持)
+
+            var ev = ev || event; // 事件对象的兼容
+            // console.log(ev); // 它是一个对象，它下面就有很多的属性或方法
+
+            // console.log(ev.type); // 事件类型
+
+            // console.log(ev.target); // 事件源（触发这个事件的对象）IE8及以下不支持
+            // console.log(ev.srcElement); // 事件源 IE支持
+            // var target = ev.target || ev.srcElement; // 事件源兼容
+            // console.log(target);
+
+            console.log(ev.clientX, ev.clientY); // 鼠标相对于可视区的距离
+            console.log(ev.pageX, ev.pageY); // 鼠标到文档的距离(IE及以下没有)
+
+            console.log(ev.shiftKey); // 事件发生的时候，是否按下了shift键
+            console.log(ev.altKey); // 事件发生的时候，是否按下了alt键
+            console.log(ev.ctrlKey); // 事件发生的时候，是否按下了crtl键
+
+        }
+    </script>
+</body>
+
+</html>

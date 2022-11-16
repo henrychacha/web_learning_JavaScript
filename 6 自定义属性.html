@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/off.png" id="pic" title="">
+
+    <script>
+        // 点击图片，实现开关灯效果(利用创建一个变量开关来实现的)
+        // var pic = document.getElementById('pic');
+        // var onOff = true; // 开关
+        // pic.onclick = function () {
+        //     if (onOff === true) {
+        //         // 开灯
+        //         pic.src = 'img/on.png';
+        //         onOff = false;
+        //     } else {
+        //         // 关灯
+        //         pic.src = 'img/off.png';
+        //         onOff = true;
+        //     }
+        // }
+
+        // -----------------------------
+        // 点击图片，实现开关灯效果(不要创建一个开关变量)
+        // 可以利用自定义属性(自己给标签添加的属性)
+        var pic = document.getElementById('pic');
+        pic.onOff = true; // 给pic添加了一个自定义的属性
+        pic.onclick = function () {
+            // console.log(this.onOff); // true 取得自定义属性
+
+            if (this.onOff) {
+                // 开灯
+                this.src = 'img/on.png';
+                this.onOff = false;
+            } else {
+                // 关灯
+                this.src = 'img/off.png';
+                this.onOff = true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

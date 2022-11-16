@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 函数都是用来实现某个特定功能的。如计算某个范围内数字的累加，操作完成之后，在函数的外面可能需要这个计算的值，但是外面是访问不到这个值的。
+        // 如果我们需要在外面使用这个值，我们就可以使用return将这个值返回出来
+        // return就是返回，它可以将函数内部的值，返回到函数外部。哪返回到哪里了呢？函数调用的结果就是return的值
+
+        // 实现1--xx之间，所有整数的和
+        // function fn(x) {
+        //     var num = 0;
+        //     for (var i = 1; i <= x; i++) {
+        //         num += i;
+        //     }
+        //     console.log(num);
+        // }
+        // fn(50);
+        // console.log(num); // 不能访问
+
+        // ----------------------------
+        // return
+        function fn(x) {
+            var num = 0;
+            for (var i = 1; i <= x; i++) {
+                num += i;
+            }
+            return num;
+        }
+        var n = fn(50); // 函数调用的结果就是return的值
+        console.log(n);
+
+        console.log(fn(100));
+
+    </script>
+</body>
+
+</html>

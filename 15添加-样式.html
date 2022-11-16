@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./node_modules/d3/d3.min.js"></script>
+ 
+    <!-- 
+        $('p').css('color','red')
+     -->
+     <div id="container">
+        <p>p1</p>
+
+        <p id="p2">02</p>
+        <p>p3</p>
+     </div>
+     
+     <script>
+        /*
+            datum:处理单个数据的绑定
+            data：处理数组的绑定
+        */ 
+       let p = d3.selectAll('p')
+        
+    //    p.style('background','red')
+        let p1 = d3.select('#p2')
+
+        //append
+        p1.append('span').text('我是追加的span')
+
+        //父元素.insert(添加的元素,参考元素)  在参考元素之前
+        d3.select('#container').insert('i','#p2').text('我是i标签')
+        
+     </script>
+</body>
+</html>

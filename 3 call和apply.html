@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 函数中的this不在定义的时候确定，而在调用的时候确定
+
+        // 函数.call(this指向, 实参1, 实参2, ...); 
+        // 函数.apply(this指向, [实参1, 实参2, ...]);
+        // 作用：调用函数，并修改函数中的this
+        // 区别：call的参数是一个一个传入，而apply是以一个数组的形式传入
+
+
+        function fn() {
+            console.log(this);
+        }
+        fn(); // window
+        fn.call(document.body); // body
+
+        // 有参数
+        function fn(a, b) {
+            console.log(this);
+            console.log(a, b);
+        }
+        // fn(3, 5); // window
+        fn.call(document.body, 7, 8); // body
+
+        // -----------------------------------
+        function fn() {
+            console.log(this);
+        }
+        fn(); // window
+        fn.apply(document.body); // body
+
+
+        // 有参数
+        function fn(a, b) {
+            console.log(this);
+            console.log(a, b);
+        }
+        // fn(3, 4); // window
+        fn.apply(document.body, [7, 8]); // body
+
+
+
+
+    </script>
+</body>
+
+</html>

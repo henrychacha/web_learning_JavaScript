@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <!-- <li>
+        <a href="">新闻内容</a>
+        <span>2020-4-4</span>
+    </li> -->
+    </ul>
+
+
+    <script src="js/ajax.js"></script>
+    <script>
+        var ul = document.getElementById('list');
+
+        // 请求数据
+        ajax('get', 'data/news.json', null, function (data) {
+            // console.log(JSON.parse(data));
+            show(JSON.parse(data)); // 数据回来了之后,调用渲染方法
+        });
+
+        // 根据数据,渲染结构
+        function show(data) {
+            // console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                var li = document.createElement('li'); // 创建li
+
+                li.innerHTML = `<a href="${data[i].href}">${data[i].title}</a>
+            <span>${data[i].time}</span>`; // 给li添加内容
+
+                ul.appendChild(li); // 添加到ul中
+            }
+        }
+    </script>
+</body>
+
+</html>

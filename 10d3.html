@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./node_modules/d3/d3.min.js"></script>
+    <!-- 
+        下载d3.js 
+            npm i d3@3
+     -->
+     <p></p>
+     <p></p>
+     <p></p>
+     <h2>属性操作</h2>
+     <script>
+        //  console.log(d3);
+        // select 选择一个符合选择器的元素
+        // d3.select('p').text('hello d3')
+        d3.selectAll('p').text('hello d3.js')
+
+        // 属性操作
+        d3.select('h2').attr('abc','1234')
+     </script>
+</body>
+</html>

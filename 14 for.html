@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 作用：让一段特定的代码执行指定的次数
+
+        // for的格式
+        // for (1初始化循环变量; 2判断条件(如果条件为真，执行代码，否则退出循环); 4更新循环变量) {
+        //     3执行代码
+        // }
+
+        // 循环打印1 2 3 
+        // console.log(1);
+        // console.log(2);
+        // console.log(3);
+
+        for (var i = 1; i <= 3; i++) {
+            console.log(i);
+        }
+
+        // for执行过程
+        // 第一轮：
+        // 1、初始化循环变量   var i = 1
+        // 2、判断条件    i <= 3    true
+        // 3、执行代码   console.log(i);
+        // 4、更新循环变量     i++     2
+
+        // 第二轮：
+        // 2、判断条件    i <= 3    true
+        // 3、执行代码   console.log(i);
+        // 4、更新循环变量     i++     3
+
+        // 第三轮：
+        // 2、判断条件    i <= 3    true
+        // 3、执行代码   console.log(i);
+        // 4、更新循环变量     i++     4
+
+        // 第四轮：
+        // 2、判断条件    i <= 3    false  退出
+
+
+        // 循环三要素：初始化循环变量，跳出循环的条件，更新循环变量。
+        // 在循环中必须有结束循环的条件，要更新循环变量，否则会成为死循环。
+    </script>
+</body>
+
+</html>

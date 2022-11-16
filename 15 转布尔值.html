@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Boolean(任何变量);
+        // 可以将任何变量转成布尔值，结果只有true / false
+
+        // 1、一切数字除了0和NaN，均返回真，0和NaN为假
+        // 2、空字符串为假，非空字符串都为真
+        // 3、true返回真，false返回假
+        // 4、null和undefined是假
+        // 5、一切对象都是真
+
+        console.log(Boolean(10)); // true
+        console.log(Boolean(-2)); // true
+        console.log(Boolean(0)); // false
+        console.log(Boolean(NaN)); // false
+
+        console.log(Boolean('ab')); // true
+        console.log(Boolean(' ')); // true   空格
+        console.log(Boolean('')); // false    空字符
+
+        console.log(Boolean(true)); // true
+        console.log(Boolean(false)); // true
+
+        console.log(Boolean(null)); // false
+        console.log(Boolean(undefined)); // false
+
+        console.log(Boolean({})); // true
+        console.log(Boolean([])); // true
+        console.log(Boolean(function () { })); // true
+
+    </script>
+</body>
+
+</html>

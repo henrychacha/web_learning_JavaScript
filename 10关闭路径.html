@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    #canvas1{
+        border: 1px solid blue;
+    }
+</style>
+<body >
+    <canvas id="canvas1">显示出这里，代表浏览器该升级了。</canvas>
+
+   <script>
+
+    //1. 获取canvas标签对象
+    var canvas = document.getElementById('canvas1')
+    canvas.width = 400
+    canvas.height = 400
+    //2. 获取画笔对象| 画布的上下文对象
+    var ctx = canvas.getContext('2d')
+
+    /*
+        ctx.beginPath() 开启路径
+            以后绘制路径图形 moveTo lineTo rect arc
+            都要先开启路径：相当于开辟了一个私有的作用域 。
+            但是 画笔的 lineWidth fillStyle strokeStyle lineJoin  lineCap 这都是全局的。
+
+        ctx.closePath() 关闭路径  把结束点和起始点自动相连接闭合
+    */
+
+    ctx.moveTo(200,100)
+    ctx.lineTo(230,300)
+    ctx.lineTo(150,300)
+    ctx.closePath() //
+
+    ctx.stroke()
+
+
+   </script>
+</body>
+</html>

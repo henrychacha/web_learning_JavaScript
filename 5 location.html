@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // location   提供url的信息  导航
+
+        // location是一个对象,我们可从中获取一系列的东西
+        console.log(location); // 对象
+        console.log(location.href); // url地址
+        console.log(location.hash); // 返回#后面的东西
+        console.log(location.search); // 返回?后面的东西
+        console.log(location.host); // 返回服务器名称和端口
+        console.log(location.hostname); // 返回服务器名称
+        console.log(location.pathname); // 返回文件路径
+        console.log(location.port); // 端口号
+        console.log(location.protocol); // 协议 返回http:  https:
+
+
+        // 5秒以后跳到百度
+        setTimeout(function () {
+            // 同a打开页面 同open打开页面
+            location.href = 'https://www.baidu.com/'
+        }, 5000)
+
+
+    </script>
+</body>
+
+</html>

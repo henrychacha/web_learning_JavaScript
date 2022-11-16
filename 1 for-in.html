@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+
+    <script>
+        // 回忆for循环能做什么？(有长度，能通过下标获取某一个)
+        // 1、普通循环
+        for (var i = 1; i <= 3; i++) {
+            console.log(i);
+        }
+
+        // 2、可以循环从页面中获取的一堆元素（有长度，可以通过下标获取某一个）
+        var li = document.getElementsByTagName('li');
+        for (var i = 0; i < li.length; i++) {
+            li[i].style.backgroundColor = 'yellow';
+        }
+
+        // 3、可以循环字符串(打印出字符串中的每个字符)
+        var str = '我是平头哥';  //（有长度，可以通过下标获取某一个字符）
+        for (var i = 0; i < str.length; i++) {
+            console.log(str[i]);
+        }
+
+        // 4、可以循环数组（打印出数组中的每一项）
+        var arr = ['刘备', '关羽', '张飞']; // (有长度，可以通过下标获取某一项)
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        // ---------------------------------------------
+        // 对象的格式：
+        // {
+        //     key1: value1,
+        //     key2: value2,
+        //     ...
+        // }
+
+        // 有一个对象，我想循环这个对象（对象没有长度，不能通过下标获取某一个）
+        var obj = {
+            name: '张三',
+            age: 3,
+            fn: '前端开发'
+        };
+
+        // 对象读取内容
+        console.log(obj.name);  // 通过点的形式读取
+        console.log(obj['age']); // 通过中括号的形式读取
+
+        // ---------------------------------------
+        // 对象的循环（因为对象没有长度，不能通过下标获取，所以不能for循环，for-in就是专门为了循环对象的）
+        // for-in的格式：
+        // for (var 变量 in 对象) {
+        //     变量就是key
+        //     对象[变量]就是value值
+        // }
+        for (var attr in obj) {
+            // attr就是key值，即name age fn，但是注意，attr在这里是一个变量
+            // obj[attr]就是value值，即 张三 3 前端开发
+            console.log(attr, '-----', obj[attr]);
+        }
+
+    </script>
+</body>
+
+</html>

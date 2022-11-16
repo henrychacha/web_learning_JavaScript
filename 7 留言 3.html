@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>留言</button>
+    <ul></ul>
+
+    <script>
+        var txt = document.querySelector('input');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+
+        btn.onclick = function () {
+            var t = txt.value; // 1、获取输入框的值
+            if (!t) {
+                alert('哥们，请输入留言内容');
+                return;
+            }
+
+            var li = document.createElement('li'); // 2、创建li标签
+            li.innerText = t; // 3、给li添加内容
+
+            // 添加一个删除按钮
+            var btn = document.createElement('button');
+            btn.innerText = '删除'; // 给btn添加内容 
+            // 给btn添加事件
+            btn.onclick = function () {
+                ul.removeChild(this.parentNode); // 删除li
+            }
+            li.appendChild(btn);
+
+
+            // ul.appendChild(li); // 4、li添加到ul中
+            ul.insertBefore(li, ul.childNodes[0]); // 最新留言在上面
+
+            txt.value = ''; // 清除输入框的内容
+        }
+
+    </script>
+</body>
+
+</html>

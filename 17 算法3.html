@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 判断一个字符串中出现次数最多的字符，并且统计次数
+        var str = 'fdslflssfsfsfssssssswer';
+        console.log(fn(str)); // { value: "s", length: 12 }
+
+        function fn(str) {
+            var obj = {};
+            var len = 0; // 存储最多字母的个数
+            var val = ''; // 存储最多的字母
+
+            for (var i = 0; i < str.length; i++) {
+                var s = str[i]; // 每一个字符
+                // 检查obj中是否有对应的key，如果没有，则添加上key，值为1，如果有，则加加
+                if (!obj[s]) {
+                    obj[s] = 1;
+                } else {
+                    obj[s]++;
+                }
+            }
+
+            // 循环对象 for-in
+            for (var attr in obj) {
+                // console.log(attr, obj[attr]); // attr就是字母 obj[attr]就是个数
+                if (len < obj[attr]) {
+                    len = obj[attr];
+                    val = attr;
+                }
+            }
+
+            return {
+                value: val,
+                length: len
+            }
+        }
+    </script>
+</body>
+
+</html>

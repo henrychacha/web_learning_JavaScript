@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./node_modules/d3/d3.min.js"></script>
+ 
+    <div id="container"></div>
+     
+     <script>
+        
+        let svgW = 400,svgH = 400,rectW = 30,rectP = 10
+        let data = [ 20,30,80,50,60 ]
+        let container = d3.select('#container')
+
+        let svg = container
+        .append('svg')
+        .attr('width',svgW)
+        .attr('height',svgH)
+        .style('border','1px solid red')
+
+        // console.log(svg);
+        svg
+        .selectAll('rect')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('width',rectW)
+        .attr('height',(value)=>{
+            return value
+        })
+        .attr('x',(item,index)=>{
+            return index * ( rectW + rectP )
+        })
+        .attr('y',(item)=>{
+            return svgH - item
+        })
+        .on('click',function(){
+            console.log('1234')
+            console.log(this)
+            this.style()
+        })
+        
+     </script>
+</body>
+</html>

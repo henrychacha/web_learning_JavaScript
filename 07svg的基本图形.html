@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #svg1,.svg{
+            border:1px solid red;
+        }
+    </style>
+    <svg id="svg1" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    
+        <!-- 
+        rect
+            x,
+            y,
+            width,
+            height,
+
+            rx ry :圆角
+            fill,填充色
+            stroke 描边色
+            stroke-width
+         -->
+        <rect id="rect1" x="20" y="20" width="100" height="50" fill="red" stroke="blue" stroke-width="5" rx="5" ry="5"></rect>
+
+    </svg>
+    <svg class="svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- 
+            x1,
+            y1,
+            x2,
+            y2
+         -->
+        <line x2="20" y2="20" x1="50" y1="50" stroke="red" stroke-width="3"></line>
+    </svg>
+    <svg class="svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 
+            points="x0 y0,x1 y1,x2 y2,....xn yn"
+              折线需要把fill="transparent" 透明 
+              stroke="red"设置线条颜色 。
+         -->
+            <polyline fill="transparent" stroke="black" points="10 10,50 55,80 5"></polyline>
+    </svg>
+    <svg class="svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 
+            cx,cy圆心
+            r 半径
+
+            fill stroke stroke-width
+         -->
+            <circle cx="100" cy="100" r="50" fill="red"></circle>
+    </svg>
+    
+    
+</body>
+</html>

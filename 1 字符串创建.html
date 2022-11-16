@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 成对的单双引号引起来的，就是字符串
+
+        var str1 = '我是平头哥'; // 字面量创建
+        console.log(str1);
+        console.log(typeof str1); // string
+
+        var str2 = String('我就是我');
+        console.log(str2);
+        console.log(typeof str2); // string
+
+        var str3 = new String('不一的烟火'); // 构造函数创建
+        console.log(str3);
+        console.log(typeof str3); // object
+
+        // ---------------------------------------
+        // 在js里，一切皆为对象。
+
+        var str = '中公优就业';
+        console.log(str.length); // 5    当代码执行到这里的时候，会有一个包装对象过来，包装对象下面有一个length属性，当执行完这句话以后，包装对象就消失了
+        // 只有对象才有方法或属性，基本类型没有方法或属性。str就是基本类型，哪为什么会有方法或属性呢？
+        // 因为我们访问或操作str的时候，会有一个包装对象过来。这个包装对象负责给str提供方法或属性
+
+
+    </script>
+</body>
+
+</html>

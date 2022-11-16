@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 原型对象：每个对象都会有自己的原型对象，是这类对象共有的方法和属性的集合
+
+        var arr = []; // 实例
+        console.log(arr); // 它下面有__proto__，就是原型对象
+
+        // 实例.__proto__
+        console.log(arr.__proto__); // 原型对象，它里面保存着数组共有的方法和属性
+
+        // 构造函数.prototype
+        console.log(Array.prototype); // 原型对象，它里面保存着数组共有的方法和属性
+
+        console.log(arr.__proto__ === Array.prototype); // true
+
+        // -------------------------------------
+        // 以数组为例
+        // 构造函数：Array
+        var arr = new Array(); // 实例
+        console.log(Array.prototype); // 原型
+        console.log(arr.__proto__); // 原型
+
+        // 原型也是对象
+        console.log(Array.prototype.constructor); // 指向构造函数
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

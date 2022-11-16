@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 父类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.arr = [1, 2, 3];
+        }
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        // 子类
+        function ChildPerson(name, age) {
+            Person.call(this, name, age); // 使用对象冒充继承继承构造函数里面的
+        }
+        inherits(Person, ChildPerson); // 寄生组合继承
+        // 继承之后，可以继续加自己的方法
+        ChildPerson.prototype.showAge = function () {
+            console.log(this.age);
+        }
+
+        var p1 = new ChildPerson('张三', 3);
+        console.log(p1);
+        // console.log(p1.name);
+        // console.log(p1.age);
+        // console.log(p1.arr);
+        // p1.showName()
+
+        // console.log(p1.constructor); // 应该指向它自己的构造函数
+
+
+
+        function inherits(parent, child) {
+            // 思考：只需要父类原型上的方法
+            function F() { };
+            F.prototype = parent.prototype; // 只是获取了原型上的方法
+            child.prototype = new F(); // F上面没有属性
+            child.prototype.constructor = child; // 修改子的constructor指向
+        }
+
+    </script>
+</body>
+
+</html>

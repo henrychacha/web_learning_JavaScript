@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function fn(a, b, c) {
+            // arguments[0]
+            // arguments[1]
+            // arguments[2]
+            // argments同形参也是一一对应的
+
+            // console.log(arguments[0] === a); // true
+
+            // a = 10;
+            // console.log(arguments[0]); // 10
+
+            arguments[0] = '张三';
+            console.log(a); // 张三
+        }
+        fn(5, 6, 7);
+    </script>
+</body>
+
+</html>

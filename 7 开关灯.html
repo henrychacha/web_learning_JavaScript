@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/off.png" id="pic">
+
+    <script>
+        // 只有一个图片，没有按钮
+        // 点击图片，实现开关灯的效果
+        // 图片的src属性，一般只用来设置，不用来获取。因为获取的是一个绝以地址
+        // 如果有条件，我们就用自身的条件。如果没有条件，我们创造一个条件
+
+        var pic = document.getElementById('pic');
+        var onOff = true; // 代表关灯
+        // console.log(pic.src); // file:///D:/0518/day03/1%E4%BB%A3%E7%A0%81/img/on.png
+
+        pic.onclick = function () {
+            if (onOff === true) {
+                pic.src = 'img/on.png';
+                onOff = false;
+            } else {
+                pic.src = 'img/off.png';
+                onOff = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 构造函数
+        function CreatePerson(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        // 原型
+        CreatePerson.prototype.ShowName = function () {
+            console.log(this.name);
+        }
+        CreatePerson.prototype.ShowAge = function () {
+            console.log(this.age);
+        }
+
+        var p1 = new CreatePerson('张三', 3);
+        console.log(p1);
+        console.log(p1.age);
+        console.log(p1.ShowName);
+
+
+
+
+        var p2 = new CreatePerson('李四', 5);
+        console.log(p2);
+        console.log(p2.name);
+        p2.ShowName();
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // isNaN(变量)
+        // 作用：用来判断不是数字（如果是数字，返回假; 否则返回真，包括NaN也返回真）
+        // isNaN：是不是不是一个数字
+        // isNaN它自己不判断，它找它的好朋友Number()来判断，如果Number()能转成功数字，它就返回false，如果Number()转不成功，它就返回true
+
+        // 1、字符串如果全是数字(包括小数点)转成数字；如果有不是数字的，转成NaN，空字符串和空格转成0
+        // 2、true转成1， false转成0
+        // 3、数字简单的返回
+        // 4、null转成0
+        // 5、undefined转成NaN
+        // 6、对象一般返回NaN，一般不用来转对象
+
+        console.log(isNaN(10)); // false
+        console.log(isNaN(NaN)); // true
+
+        console.log(isNaN('10')); // false
+        console.log(isNaN('10a')); // true
+
+        console.log(isNaN(true)); // false
+        console.log(isNaN(false)); // false
+
+        console.log(isNaN(null)); // false
+        console.log(isNaN(undefined)); // true
+
+    </script>
+</body>
+
+</html>

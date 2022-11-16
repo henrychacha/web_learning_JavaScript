@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 因为alert是window下面的，所以调用的时候，可以省略window
+        // alert 带确定的弹出窗，没有返回值
+        var a = alert('我就是我');
+        window.alert('平头哥');
+        console.log(a); // undefined
+
+        // ----------------------
+        // confirm 带有确定和取消按钮的弹出窗，点击确定返回true，点击取消，返回false
+        // var n = window.confirm('吃饭吗？');
+        // console.log(n);
+
+        // --------------------------
+
+        // prompt 带有输入框的弹出窗，点击确定，返回输入框的内容，点击取消，返回null
+        var n = window.prompt('请输入你的年龄', 18);
+        console.log(n);
+
+
+
+    </script>
+</body>
+
+</html>

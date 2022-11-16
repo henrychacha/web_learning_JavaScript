@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 函数同名的，后面的会覆盖前面的函数
+        function fn() {
+            console.log(1);
+        }
+
+        function fn() {
+            console.log(2);
+        }
+
+        fn();
+
+        // ---------------------
+        var a = 10;
+        a = 5;
+        console.log(a); // 5
+
+
+        // ------------------------------
+        // --------------------------------
+        // 如果实参比形参个数多，哪多的也白多
+        // 如果实参比形参个数少，则没有匹配上的形参的值是undefined
+        function fn(a, b, c) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+
+        fn(3, 5, 7);
+        fn(1, 2, 3, 4, 5)
+        fn(7, 8);
+
+    </script>
+</body>
+
+</html>

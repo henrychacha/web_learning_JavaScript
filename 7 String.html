@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <button id="btn">按钮</button>
+
+    <script>
+        // String类型即字符串类型，是用引号引起来的数据，单双引号均可。
+        var name = "小王"; // 单双引号均可，但是要成对出现
+        console.log(name, typeof name); // 小王 string
+
+        var msg = "我是打不死的'小强'"; // 可以相互嵌套
+        console.log(msg, typeof msg);
+
+        var n = '10';
+        console.log(n, typeof n); // string
+        console.log(10); // number
+
+        // -----------------------------------
+        // 我们从input表单中获取的用户输入都是字符串，哪怕输入的是数字
+        var txt = document.getElementById('txt');
+        var btn = document.getElementById('btn');
+        // console.log(txt, btn);
+        btn.onclick = function () {
+            var p = txt.value; // 获取用户的输入
+            console.log(p, typeof p); // string
+        }
+
+        // -------------------------------
+        // 字符串有长度(长度从1开始数)，有下标(下标从0开始数)
+        var str = '我是小强';
+        console.log(str.length); // 长度
+
+        // 可以能过下标获取某一个字符：
+        // 字符串.charAt(下标)     字符串[下标]（IE7及以下返回不到）
+        var n = str.charAt(2);
+        console.log(n); // 小
+        var n2 = str[2];
+        console.log(n2); // 小
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var arr = ['刘备', '关羽', '张飞'];
+
+        // 数组.push(参数)
+        // 可以接收任何多个参数，在数组的尾部添加，返回修改后的数组的长度
+        // var n = arr.push('张三', '平头哥');
+        // console.log(arr); // [ "刘备", "关羽", "张飞", "张三", "平头哥" ]
+        // console.log(n); // 5
+
+        // 数组.unshift(参数);
+        // 可以接收任何多个参数，在数组的头部添加，返回修改后的数组的长度
+        // var n = arr.unshift('张三', '平头哥');
+        // console.log(arr);
+        // console.log(n);
+
+        // 数组.pop();    一次只能删除一个
+        // 从数组的最后面，删除一项，返回被删除的这一项
+        // var n = arr.pop();
+        // console.log(arr);
+        // console.log(n);
+
+        // 数组.shift();     一次只能删除一个
+        // 从数组的最前面，删除一项，返回被删除的这一项
+        // var n = arr.shift();
+        // console.log(arr);
+        // console.log(n);
+
+        // ---------------------------------
+        // 强大的splice()方法，可以实现从任意位置添加、删除、替换，返回被删除的项组成的数组
+        // 数组.splice(起始下标, 要删除的个数, 要添加的项);
+
+        var arr = ['刘备', '关羽', '张飞'];
+
+        // 删除
+        var n = arr.splice(1, 2);
+        console.log(arr);
+        console.log(n);
+
+        // 替换
+        var n = arr.splice(1, 1, '关兴', '关豹', '关平');
+        console.log(arr);
+        console.log(n);
+
+        // 添加
+        var n = arr.splice(2, 0, '关兴', '关豹', '关平');
+        console.log(arr);
+        console.log(n);
+
+
+
+    </script>
+</body>
+
+</html>

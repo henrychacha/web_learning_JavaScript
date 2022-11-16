@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 父类
+        function Box() {
+            this.name = '桌子';
+            this.arr = [1, 2, 3];
+        }
+
+        // 子类
+        function Desk() {
+            this.age = 90;
+        }
+        // 面试：如何用一句话实现继承：父类的实例赋给子类的原型
+        // 子类继承父类  子类的原型 = 父类的实例
+        Desk.prototype = new Box();
+
+        // 问题：如果继承了父类的引用类型，子类一改这个引用类型，以后创建的子类的引用类型也都改了
+        var b = new Desk(); // 创建一个子的实例
+        console.log(b);
+        b.arr.push(4);
+        console.log(b.arr); // [1, 2, 3, 4]
+
+        var c = new Desk();
+        console.log(c.arr); // [1, 2, 3, 4]
+
+    </script>
+</body>
+
+</html>

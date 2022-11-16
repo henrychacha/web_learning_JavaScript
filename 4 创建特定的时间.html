@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // new Date()如果不传参，创建的是电脑当前的时间
+        // 传参可以创建指定的时间
+
+        // 1、不传参
+        var d1 = new Date();
+        console.log(d1.toLocaleString());
+
+        // 2、接收数字，参数为(年，月，日，时，分，秒)  注意月减1
+        var d2 = new Date(2022, 2, 2, 10, 18, 12);
+        console.log(d2.toLocaleString());
+
+        // 3、接收字符串，参数为('年，月，日，时:分:秒')
+        var d3 = new Date('2022,2,2,10:18:12');
+        console.log(d3.toLocaleString());
+
+        // 4、接收时间戳
+        var d4 = new Date(1590459762895);
+        console.log(d4.toLocaleString());
+
+
+        // ---------------------------------
+        // 单一修改时间的某一块(前面有获取的，这里就有对应设置的)
+        var d = new Date();
+        d.setFullYear(2028);
+        d.setMonth(18); // 有容错的功能，如果超过11，则年加1
+        d.setDate(3);
+        console.log(d.setDate(3));
+        console.log(d.setMonth(18));
+        console.log( d.setFullYear(2028));
+
+        console.log(d.toLocaleString());
+
+
+
+
+
+    </script>
+</body>
+
+</html>

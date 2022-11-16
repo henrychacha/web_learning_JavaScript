@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：字符中.charCodeAt(下标);
+        // 作用：通过下标返回指定字符的unicode编码，这个值在0--65535之间
+
+        var str = '我是平头哥';
+        console.log(str.charCodeAt(3)); // 22836
+
+        var str2 = '0123456789';
+        console.log(str2.charCodeAt(0)); // 0 -- 48
+        console.log(str2.charCodeAt(str2.length - 1)); // 9 -- 57
+
+        var str3 = 'az';
+        console.log(str3.charCodeAt(0)); // a  97
+        console.log(str3.charCodeAt(1)); // z   122
+
+        var str4 = 'AZ';
+        console.log(str4.charCodeAt(0)); // A  65
+        console.log(str4.charCodeAt(1)); // Z   90
+
+
+    </script>
+</body>
+
+</html>

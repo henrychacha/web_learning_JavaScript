@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // jQuery对象.attr('属性') // 获取
+            // jQuery对象.attr('属性', '值') // 设置
+            // jQuery对象.attr({ '属性1': '值1' }, { '属性2': '值2' }) // 一次设置多个
+            // jQuery对象.removeAttr('属性'); // 删除
+
+            // console.log($('#p1').attr('title')); // 获取
+            // $('#p1').attr('title', '天不怕，地不怕'); // 设置
+
+            // $('#p1').attr('abc', '我就是我'); // 操作自定义的
+            // console.log($('#p1').attr('abc')); // 获取自定义的
+
+            // // 一次设置多个
+            // $('#p1').attr({
+            //     'aaa': '123',
+            //     'bbb': '456'
+            // })
+
+            // $('#p1').removeAttr('aaa'); // 删除
+
+            // ------------------------------------------
+            // 什么时候使用prop
+            // 1、只添加属性名称该属性就会生效，应该使用prop
+            // 2、只存在true/false属性，应该使用prop
+            // jQuery对象.prop('属性名'); // 获取
+            // jQuery对象.prop('属性名', '值'); // 设置
+            // jQuery对象.removeProp('属性名'); // 删除
+
+            console.log($(':checkbox').prop('checked')); // 获取 返回布尔值
+            $(':checkbox').prop('checked', false); // 设置
+
+            // 按钮点击，切换checkbox的选中状态
+            $('button').click(function () {
+                if ($(':checkbox').prop('checked')) {
+                    $(':checkbox').prop('checked', false);
+                } else {
+                    $(':checkbox').prop('checked', true);
+                }
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <p id="p1" title="我就是我，不一样的烟火">平头哥</p>
+
+    <input type="checkbox">
+    <button>按钮</button>
+</body>
+
+</html>

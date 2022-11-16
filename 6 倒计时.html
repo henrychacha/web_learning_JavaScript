@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>跑离秒杀还有：xx天xx小时xx分钟xx秒</h1>
+
+    <script>
+        var h1 = document.querySelector('h1');
+
+        // 思路：有两个时间，未来时间 - 当前时间，它们有一个差，我们将这个差值转换为天 小时 分钟 秒即可
+
+        fn();
+        var timer = setInterval(fn, 1000);
+
+        function fn() {
+            var d1 = new Date('2020,5,26,11:21:0'); // 未来时间
+            var d2 = new Date(); // 当前时间
+            // 时间对象相减，其实先把它们转成时间戳，再进行相减
+            var d = Math.floor((d1 - d2) / 1000); // 将差值毫秒数转换成秒
+
+            // 判断停止
+            if (d <= 0) {
+                clearInterval(timer);
+                h1.innerText = '开始妙杀了，不抢你就傻了';
+                return;
+            }
+
+            var date = Math.floor(d / 86400); // 天
+            var h = Math.floor(d % 86400 / 3600); // 小时
+            var m = Math.floor(d % 86400 % 3600 / 60); // 分钟
+            var s = d % 60; // 秒
+
+            h1.innerText = '跑离秒杀还有：' + date + '天' + toTwo(h) + '小时' + toTwo(m) + '分钟' + toTwo(s) + '秒';
+        }
+
+        // 封装一个函数，补0
+        function toTwo(n) {
+            if (n < 10) {
+                return '0' + n;
+            } else {
+                return '' + n;
+            }
+        }
+    </script>
+</body>
+
+</html>

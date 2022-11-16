@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 第一种情况
+        var box = document.getElementById('box');
+        box.onclick = function () {
+            console.log(this); // 函数被谁调用，this就指向谁
+        }
+
+        // 第二种情况，函数主动调用时，函数中的this是window
+        function fn(a) {
+            console.log(a);
+            console.log(this); // window
+        }
+        // fn(5);
+
+
+        // ------------------------------
+        box.onclick = function () {
+            console.log(this); // ? box
+            fn(8); // window
+        }
+
+        // ------------------------------------
+        // 第三种
+        var name = '张三';
+        var obj = {
+            name: '李四',
+            fn: function () {
+                console.log(this.name);
+            }
+        }
+
+        // obj.fn(); // 李四 这种调用方式，函数中的this是前面的哪个对象
+
+        var v = obj.fn;
+        v(); // 张三
+    </script>
+</body>
+
+</html>

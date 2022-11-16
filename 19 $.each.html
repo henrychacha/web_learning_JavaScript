@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 给所有的li添加背景色
+            // jquery内部做了循环
+            // $('li').css('background', 'red');
+
+            // ----------------------------------
+            // 方法只能针对jquery元素
+            // jQuery对象.each(function (下标, 元素) { });
+            // 元素是原生的元素
+
+            $('li').each(function (index, item) {
+                console.log(this === item); // true
+                // console.log(index, item);
+                var i = index + 1;
+                var t = $(item).text();
+                $(item).text(`${i}、${t}`);
+            })
+
+            // -------------------------------------
+            // 可以针对jquery对象、数组、和普通对象
+            // $.each(对象, function (下标, 元素) { })
+
+            // 针对jq对象
+            $.each($('li'), function (index, item) {
+                // console.log(index, item);
+                $(item).text(index);
+            });
+
+            // 针对数组
+            var arr = ['刘备', '关羽', '张飞'];
+            $.each(arr, function (index, item) {
+                console.log(index, item);
+            });
+
+            // 针对对象
+            var obj = {
+                name: '张三',
+                age: 3,
+                fn: '前端开发'
+            }
+            $.each(obj, function (key, value) {
+                console.log(key, value);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+
+</body>
+
+</html>

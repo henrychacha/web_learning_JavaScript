@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 作用域：变量或函数的有效使用范围，有全局作用域和局部作用域两种。
+
+        // 全局作用域：直接在script标签下声明的变量或函数，在任何地方都能访问，任何地方都可以进行修改
+        // 局部作用域：在函数内部定义的变量，函数内能够访问或修改，出了函数就不能访问
+
+        // var a = 10;
+        // function fn() {
+        //     a++;
+        // }
+        // fn();
+        // console.log(a);
+
+        // -----------------------
+        // var a = 10;
+        // function fn1() {
+        //     a++;
+        //     console.log(a);
+        // }
+        // function fn2() {
+        //     a++;
+        //     console.log(a);
+        // }
+        // fn1();
+        // fn2();
+        // console.log(a);
+
+
+
+        // --------------------------
+        // function sum() {
+        //     var a = 10;
+        //     console.log(a);
+        //     function s() {
+        //         console.log(a);
+        //     }
+        //     s();
+        // }
+        // sum();
+
+        // console.log(a); // a is not defined
+        // s(); // s is not defined
+
+        // ------------------------
+        // console.log(a); // undefined
+        // var a = 1;
+
+        console.log(a); // 报错
+        a = 1;
+
+    </script>
+</body>
+
+</html>

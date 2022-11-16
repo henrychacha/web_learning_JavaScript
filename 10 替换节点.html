@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>我就是我</span>
+    <hr>
+    <p>我就是平头哥</p>
+
+    <script>
+        // 父元素.replaceChild(新的节点, 被替换的节点);
+
+        var span = document.querySelector('span');
+        var p = document.querySelector('p');
+
+        // document.body.replaceChild(p, span); // 用页面中原有元素来替换
+
+        // 创建一个新的元素来替换
+        var i = document.createElement('i');
+        i.innerText = '我来了';
+        document.body.replaceChild(i, span);
+    </script>
+</body>
+
+</html>

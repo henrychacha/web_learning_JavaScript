@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #canvas{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <canvas id="canvas" width="500" height="300"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas')
+        let ctx = canvas.getContext('2d')
+      
+        let x=0,y=0,w=20,h=20,stepx=2,stepy=2,timer,xflag=false,yflag=false
+                //xflag = false 没有到达最右端
+                //yflag = false 没有到最底端
+        let maxL = canvas.width - w
+        let maxT = canvas.height - h
+
+        setInterval(()=>{
+            ctx.clearRect(0,0,canvas.width,canvas.height)
+            ctx.beginPath()
+            //console.log( canvas.width,canvas.height )
+            x+=stepx 
+            y+=stepy
+
+            if( x >= maxL ){
+                stepx=-2
+            }else if( x <=0 ){
+                stepx=2
+            }
+
+            if( y >= maxT ){
+                stepy=-2
+            }else if( y <=0 ){
+                stepy=2
+            }
+
+            //ctx.fillRect(x,y,w,h)
+            ctx.rect(x,y,w,h)
+            ctx.fill()
+
+        },30)
+        
+
+    </script>
+</body>
+</html>

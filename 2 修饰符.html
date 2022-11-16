@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 正则默认规则：只查找一次，区分大小写
+        // 查找多次：g
+        // 不区分大小写：i
+
+        // 需求：把hello替换是你好     替换：replace
+        var str = 'hello web, hello ui, hello java';
+        var re1 = /hello/;
+        var re2 = /hello/g;
+        console.log(str.replace(re1, '你好'));
+        console.log(str.replace(re2, '你好'));
+
+        // -------------------------
+        // 查找字符串中，对应字符的下标    查找下标：search
+        var str = '你好啊aBCd平头哥';
+        var re1 = /abcd/;
+        var re2 = /abcd/i;
+        console.log(str.search(re1)); // str中，abcd的下标是几
+        console.log(str.search(re2)); // str中，abcd的下标是几
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 函数都是有目的性的，即每个函数都有自己要实现的功能
+
+        // 如：计算两个数的和
+        function fn() {
+            var a = 10;
+            var b = 20;
+            console.log(a + b);
+        }
+        fn();
+
+        // 如：计算1--100之间，所有的整数的和
+        // 1+2+3+4+...+100
+        // 1、找到1--100的数
+        // 2、找一个空变量，把1--100，找到这个空变量中来
+        function fn2() {
+            var num = 0;
+            for (var i = 1; i <= 100; i++) {
+                num += i;
+            }
+            console.log(num);
+        }
+        fn2();
+
+        // 计算1--50之间，所有数的和
+        function fn3() {
+            var num = 0;
+            for (var i = 1; i <= 50; i++) {
+                num += i;
+            }
+            console.log(num);
+        }
+        fn3();
+
+        // 太笨，我们1--100要写一个函数，1--50要写一个函数
+
+    </script>
+</body>
+
+</html>

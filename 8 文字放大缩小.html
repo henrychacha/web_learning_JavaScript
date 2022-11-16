@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1">放大</button>
+    <button id="btn2">缩小</button>
+    <p id="txt">
+        数据在进行 +、-、*、/、%、++、-- 等操作的时候会自动转换数据类型进行操作。
+        - 隐式类型转换是跟前面强制类型转换对应的
+        - 强制：Number() parseInt() parseFloat() String() Boolean()
+        - 隐式：偷偷的转换。客观上你没有主动去转换，是程序背后转换的
+    </p>
+
+
+    <script>
+        // 点击放大的时候，文字每次放大2px，最大到36
+        // 点击综小的时候，文字每次缩小2px，最小到12
+        // 浏览器默认文字大小是16
+
+        var txt = document.getElementById('txt');
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        // console.log(txt, btn1, btn2);
+        var num = 16; // 默认字号
+
+        // 放大
+        btn1.onclick = function () {
+            num += 2; // num = num + 2;
+            // 不能超过36
+            if (num >= 36) {
+                num = 36;
+            }
+            console.log(num);
+            txt.style.fontSize = num + 'px';
+        }
+
+        // 缩小
+        btn2.onclick = function () {
+            num -= 2;
+            if (num <= 12) {
+                num = 12;
+            }
+            txt.style.fontSize = num + 'px';
+        }
+
+    </script>
+</body>
+
+</html>

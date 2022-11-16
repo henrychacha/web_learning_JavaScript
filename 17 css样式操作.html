@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // jQuery对象.css('样式名', '样式值'); // 添加
+            // jQuery对象.css({ '样式名1': '样式值1', '样式名2': '样式值2' }); // 添加多个
+            // jQuery对象.css('样式名'); // 获取
+
+            // 注意：
+            // 1、如果是数字，将会自动转化为像素值。
+            // 2、在css方法中，如果属性中带有‘-’符号，例如font-size和background-color属性，如果在设置这些值时，不带引号，那么就要用驼峰式写法。如果带上引号，可以写成font-size也可以写成fontSize。加上引号是个良好的习惯。
+
+            // 设置样式
+            $('#box').css('background', 'red');
+            // 一次设置多个
+            $('#box').css({
+                width: '100px',
+                height: 100,
+                fontSize: 20
+            });
+            // 获取样式
+            console.log($('#box').css('width'));
+            console.log($('#box').css('background-color'));
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box">平头哥</div>
+</body>
+
+</html>

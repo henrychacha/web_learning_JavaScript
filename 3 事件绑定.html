@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 需求：要给一个元素的同一个事件，绑定不同的处理函数
+        var box = document.getElementById('box');
+        function fn1() {
+            console.log(1);
+            console.log(this === window);
+        }
+        function fn2() {
+            console.log(2);
+        }
+
+        // 原来的写法。这种写法，其实是赋值的写法，后面的覆盖前面的
+        // box.onclick = fn1;
+        // box.onclick = fn2;
+
+        // ------------------------------------
+        // 标准浏览器（IE8及以下不支持）
+        // 元素.addEventListener(不加on的事件名, 函数, 是否捕获);
+        // box.addEventListener('click', fn1, false);
+        // box.addEventListener('click', fn2, false);
+        // 第三个参数，如果为true，就是捕获，如果为false，就是冒泡
+
+        // -------------------------
+        // IE10及以下支持
+        // 元素.attachEvent(加on的事件名, 函数);
+        // box.attachEvent('onclick', fn1);
+        // box.attachEvent('onclick', fn2);
+
+        // ---------------------------------------
+        // 标准的和IE的区别
+        // 1、IE的没有事件捕获，标准有
+        // 2、IE的事件名前面有on，标准没有
+        // 3、标准会根据写的顺序正确执行，而IE低版本是倒序执行
+        // 4、IE的this指向window，而标准的指向触发这个事件的元素
+
+        // ------------------------------------
+        // 兼容原理
+        // console.log(box.addEventListener); // 如果返回的是一个函数，就是高版本，如果返回undefined，就是IE8及以下
+        // if (box.addEventListener) {
+        //     // 标准浏览器
+        //     box.addEventListener('click', fn1, false);
+        // } else {
+        //     // IE8及以下
+        //     box.attachEvent('onclick', fn1);
+        // }
+
+        // -----------------------
+        // 事件绑定的兼容封装，参数：元素 事件 函数
+        function bind(obj, ev, callback) {
+            if (obj.addEventListener) {
+                // 标准浏览器
+                obj.addEventListener(ev, callback, false);
+            } else {
+                // IE8及以下
+                obj.attachEvent('on' + ev, callback);
+            }
+        }
+
+        bind(box, 'click', fn1);
+        bind(box, 'click', fn2);
+
+
+
+    </script>
+</body>
+
+</html>

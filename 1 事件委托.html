@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>添加</button>
+    <ul>
+        <li>吃饭</li>
+        <li class="abc">睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+
+    <script>
+        // 需求：点击li，给每个li添加一个背景颜色
+
+        // 一般做法(新添加的元素，没有之前的事件)
+        var ul = document.querySelector('ul');
+        var li = document.getElementsByTagName('li');
+        // for (var i = 0; i < li.length; i++) {
+        //     li[i].onclick = function () {
+        //         this.style.backgroundColor = 'red';
+        //     }
+        // }
+
+        // 事件代理
+        // 1、新添加的元素，也有之前的事件
+        // 2、省略了循环，提高了性能
+        ul.onclick = function (ev) {
+            var ev = ev || event;
+            var target = ev.target || ev.srcElement; // 事件源
+            // 可以使用nodeName，要根据你的使用场景来定
+            // if (target.nodeName === 'LI') {
+            //     target.style.backgroundColor = 'green';
+            // }
+
+            // 也可以使用class
+            if (target.className === 'abc') {
+                target.style.backgroundColor = 'green';
+            }
+        }
+
+        // 给ul添加内容
+        var input = document.querySelector('input');
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            var txt = input.value;
+            var oLi = document.createElement('li');
+            oLi.innerHTML = txt;
+            ul.appendChild(oLi);
+        }
+    </script>
+</body>
+
+</html>

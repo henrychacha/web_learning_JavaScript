@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：字符串.match(正则);
+        // 作用：在字符串中，查找正则匹配的内容，如果找到，返回由找到的内容组成的一个数组，否则返回null
+
+        var str = 'hello world';
+        var re1 = /o/;
+        var re2 = /o/g;
+        var re3 = /a/;
+
+        console.log(str.match(re1)); // [ "o" ]
+        console.log(str.match(re2)); // [ "o", "o" ]
+        console.log(str.match(re3)); // null
+
+
+    </script>
+</body>
+
+</html>

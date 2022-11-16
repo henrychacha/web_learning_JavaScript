@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // $.map(对象, function (元素, 下标) { })
+        // 返回一个数组
+
+        var obj = {
+            name: '张三',
+            age: 3,
+            fn: '前端开发'
+        };
+
+        var arr = $.map(obj, function (value, key) {
+            // console.log(value, key);
+            // return value;
+            return key;
+        });
+
+        console.log(arr);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

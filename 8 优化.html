@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script src="js/move.js"></script>
+    <script>
+        var box = document.getElementById('box');
+        box.onclick = function () {
+            move(box, {
+                width: 300,
+                height: 500,
+                opacity: 30
+            }, function () {
+                move(box, {
+                    left: 300,
+                    top: 200,
+                    opacity: 100
+                })
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // 为了使用户能够更灵活地操作表单，jQuery中专门加入了表单选择器。利用这个选择器，能极其方便地获取到表单的某个或某类型的元素。
+
+        $(function () {
+            // console.log($('input'));
+            // console.log($(':text')); // 单行文本框
+            // console.log($(':password')); // 密码
+            // console.log($(':radio')); // 单选
+            // console.log($(':checkbox')); // 复选
+
+            console.log($(':checked')); // 被选中的单选或复选
+            
+
+        })
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <input type="text">
+        <input type="password" name="">
+        <input type="radio" name="">
+        <input type="checkbox" name="">
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        <input type="button" value="普通按钮">
+        <input type="file" name="">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <button id="btn">留言</button>
+    <ul id="list"></ul>
+
+    <script>
+        // 双标签元素内容操作
+
+        // 1、获取元素
+        var txt = document.getElementById('txt');
+        var btn = document.getElementById('btn');
+        var list = document.getElementById('list');
+        // console.log(txt, btn, list);
+
+        // 2、点击留言按钮，取得输入框的值，然后放到ul中
+        btn.onclick = function () {
+            var p = txt.value;
+
+            // 先运算等号右边的，即先取得list里面的内容，再和li相加，最后等于左边的list.innerHTML
+            // innerHTML取得原来ul中的内容，再和新加的内容合起来，最后再给ul
+            list.innerHTML = list.innerHTML + '<li>' + p + '</li>';
+        }
+
+
+    </script>
+</body>
+
+</html>

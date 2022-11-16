@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="js/moment.js"></script>
+    <script>
+
+        // diff比较
+        // 格式：时间1.diff(时间2, 键);
+        // 作用：输入某个人的身份证号，获得这个人的年龄
+        var age = moment().diff(moment('20001001'), 'year');
+        console.log(age);
+
+        
+        var str = '422822199911140000';
+        var s = str.substr(6, 8);
+        var age = moment().diff(moment(s), 'year');
+        console.log(age);
+
+
+        // 增加，7天以后
+        var d = moment().add(7, 'days');
+        console.log(d.format('YYYY年MM月DD日 HH:mm:ss'));
+
+        // 减少，7天以前
+        var d = moment().subtract(7, 'days');
+        console.log(d.format('YYYY年MM月DD日 HH:mm:ss'));
+
+    </script>
+</body>
+
+</html>

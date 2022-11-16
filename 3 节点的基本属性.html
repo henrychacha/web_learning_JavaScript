@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>我是平头哥</p>
+    <ul id="list">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+
+    <script>
+        // 节点.nodeType : 节点的类型
+        // 返回12个数字： 1--元素  2--属性  3--文本  9--文档
+
+        // 节点.nodeName ：节点的名字
+        // 元素就返回大写的标签名，文本就返回#text
+
+        // 节点.nodeValue ：节点的内容
+        // 只有文本才有内容
+
+        var p = document.querySelector('p');
+        // console.log(p.nodeType); // 1  p是一个元素节点
+        // console.log(p.nodeName); // P
+        console.log(p.nodeValue); // null
+        console.log(p.childNodes[0].nodeValue); // 我是平头哥
+        console.log(p.innerHTML);
+        console.log(p.innerText);
+
+
+
+
+
+        var list = document.getElementById('list');
+        var li = list.childNodes;
+        // console.log(li);
+        for (var i = 0; i < li.length; i++) {
+            // console.log(li[i].nodeType); // 3文本  1元素
+            // console.log(li[i].nodeName);
+
+        }
+
+        // ------------------------------------
+
+
+    </script>
+</body>
+
+</html>

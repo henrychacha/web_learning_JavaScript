@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+
+    <script>
+        // 需求：点击li，打出它的下标
+
+        // 1、获取
+        // 2、绑定点击
+
+        var li = document.getElementsByTagName('li');
+        for (var i = 0; i < li.length; i++) {
+
+            li[i].index = i; // 利用自定义属性，添加index作业下标
+
+            li[i].onclick = function () {
+                // 打印点击的这个元素的下标
+                console.log(this.index);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="js/moment.js"></script>
+    <script>
+        var d = moment().year(2028); // 先创建，再修改年
+        var d = moment().set('year', 2030); // 先创建，再修改年
+        console.log(d.format('YYYY年MM月DD日 HH:mm:ss')); // 2020年05月26日 11:36:16
+
+        // ---------------------------------
+
+        console.log(moment().year()); // 直接获取年
+    </script>
+</body>
+
+</html>

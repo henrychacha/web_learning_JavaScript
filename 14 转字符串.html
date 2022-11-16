@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 变量.toString()   这个方法不能转换null和undefined
+        // String(任何变量); 可以转任何类型，转换数字、布尔、字符串同toString
+
+        // 会产生一个新的字符串，不会改变原来的变量
+
+        // 1、数字直接转成字符串的数字，NaN直接返回'NaN'
+        // 2、字符串简单的返回
+        // 3、布尔值转换成字符串的 'true' 'false'
+
+        var n = 10;
+        var s = n.toString();
+        console.log(s, typeof s); // 10 'string'
+        console.log(n, typeof n); // 10 'number'
+        console.log((NaN).toString()); // 'NaN'
+        
+        console.log((true).toString()); // 'true'
+        console.log((false).toString()); // 'false'
+
+        // console.log((null).toString()); // 报错
+        // console.log((undefined).toString()); // 报错
+
+        // --------------------------
+        console.log(String(null)); // 'null'
+        console.log(String(undefined)); // 'undefined'
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

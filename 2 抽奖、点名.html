@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #box {
+            width: 300px;
+            height: 100px;
+            border-radius: 10px;
+            margin: 20px auto;
+            border: 10px solid #ccc;
+            font-size: 30px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">请抽奖</div>
+    <button id="btn">抽奖</button>
+
+    <script>
+        // 需求：点击抽奖按钮，开始抽奖，每隔50毫秒变换一次，3秒钟以后停止
+
+        // 随机数公式
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        // var arr = ['谢谢惠顾', '一等奖：一百万', '谢谢惠顾', '二等奖：二百万', '谢谢惠顾', '二等奖：1毛钱', '三等奖：负一百万', '谢谢惠顾', '三等奖：负二百万'];
+        var arr = ['张三', '李四', '王五', '刘备', '张飞', '关羽', '赵云', '马超', '黄忠'];
+
+
+        var box = document.getElementById('box');
+        var btn = document.getElementById('btn');
+        var timer = null; // 定时器
+        // console.log(box, btn);
+
+        btn.onclick = function () {
+            btn.disabled = true; // 按钮禁用
+
+            // 开启一个定时器（setInterval）
+            timer = setInterval(function () {
+                var n = getRandom(0, arr.length - 1); // 从arr中随机出一个下标
+                box.innerText = arr[n]; // 抽到奖品的内容，添加到box中
+            }, 50);
+
+            // 同时开启一个setTimeout的定时器，3秒钟以后停止
+            setTimeout(function () {
+                clearTimeout(timer);
+                btn.disabled = false; // 按钮启用
+            }, 3000);
+        }
+
+
+    </script>
+</body>
+
+</html>

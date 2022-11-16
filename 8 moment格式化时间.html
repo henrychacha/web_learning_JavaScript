@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="js/moment.js"></script>
+    <script>
+        var d = moment(); // 没有参数，创建当前时间
+
+
+        // format格式化，我们可以给format传参
+        console.log(d.format('YYYY')); // 年
+        console.log(d.format('MM')); // 月
+        console.log(d.format('DD')); // 日
+
+        console.log(d.format('d')); // 星期  返回0--6
+
+        console.log(d.format('HH')); // 小时
+        console.log(d.format('mm')); // 分钟
+        console.log(d.format('ss')); // 秒
+
+        console.log(d.format('x')); // 只含秒的时间戳
+
+        console.log(d.format('YYYY年MM月DD日 HH:mm:ss')); // 2020年05月26日 11:36:16
+        // ------------------
+
+
+
+
+
+    </script>
+</body>
+
+</html>

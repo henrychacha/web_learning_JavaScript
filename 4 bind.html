@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 函数.bind(this指向);
+
+        // 作用：返回修改this指向的函数(不调用函数)
+        // IE8及以下不支持
+
+        function fn(a, b) {
+            console.log(this);
+            console.log(a, b);
+        }
+
+        fn(); // window
+        var v = fn.bind(document.body, 3, 4); // bind修改了函数中的this，返回一个新的函数，这个新的函数v中的this就是body
+        v();
+
+        // -----------------
+        var v = fn.bind(document.body);
+        v(4, 6)
+
+        // ------------------
+        var v = fn.bind(document.body, 5);
+        v(8)
+
+        // -----------------
+        fn.bind(document.body)(10, 20);
+
+    </script>
+</body>
+
+</html>

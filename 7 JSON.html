@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="js/json2.js"></script>
+    <script>
+        // IE7及以下不支持
+        // JSON.parse(参数)        将参数转换成对象
+        // JSON.stringify(参数)    将参数转换为字符串
+
+        var arr = ['刘备', '张飞', '关羽'];
+
+        var str = JSON.stringify(arr);
+        console.log(str); // '["刘备","张飞","关羽"]'   它是一个字符串，只不过找得像数组
+        console.log(typeof str);
+
+
+        console.log(JSON.parse(str)); // [ "刘备", "张飞", "关羽" ]
+
+
+    </script>
+</body>
+
+</html>

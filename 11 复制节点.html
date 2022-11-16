@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 复制节点：被复制的元素.cloneNode(布尔值);
+        // 如果为true，则会复制子孙节点，false只复制当前节点
+
+        window.onload = function () {
+            var btn = document.querySelector('button');
+            var ul = document.querySelector('ul');
+
+            btn.onclick = function () {
+                var v = ul.cloneNode(true); // v就是ul的副本
+                document.body.appendChild(v);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>复制</button>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</body>
+
+</html>

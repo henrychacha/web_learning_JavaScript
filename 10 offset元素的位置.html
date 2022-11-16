@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 50px 40px;
+        }
+
+        #box1 {
+            background: red;
+            position: relative;
+        }
+
+        #box2 {
+            background: green;
+            position: relative;
+        }
+
+        #box3 {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+
+    <script>
+        // 元素.offsetLeft  元素到离它最近的有定位属性的父级的左边的距离，如果没有定位父级，则返回到body的距离
+        // 元素.offsetTop   元素到离它最近的有定位属性的父级的顶边的距离，如果没有定位父级，则返回到body的距离
+
+        var box3 = document.getElementById('box3');
+        console.log(box3.offsetLeft);
+        
+
+        // -----------------------------
+        // 利用offsetLeft offsetTop offsetParent实现：获取任何一个元素到文档的距离
+        // 传一个元素，返回这个元素到文档的距离
+        function getPos(obj) {
+            var o = { // 存储盒子到左边和顶边的距离
+                left: 0,
+                top: 0
+            }
+            while (obj) {
+                o.left += obj.offsetLeft;
+                o.top += obj.offsetTop;
+                obj = obj.offsetParent;
+            }
+            return o;
+        }
+
+        console.log(getPos(box3));
+
+    </script>
+</body>
+
+</html>

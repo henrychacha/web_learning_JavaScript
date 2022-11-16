@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #canvas{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas')
+        let ctx = canvas.getContext('2d')
+      
+        /*
+            线性渐变和径向渐变
+            createLinearGradient(x0,y0,x1,y1)
+            createRadialGradient( x0,y0,r0,x1,y1,r1 )
+
+                addColorStop( 位置，颜色 )
+        */
+
+        //1. 线性渐变
+        /*
+        let lg = ctx.createLinearGradient(0,0,200,200)
+
+        console.log(lg);
+        lg.addColorStop( 0,'red' )
+        lg.addColorStop( 0.3,'pink' )
+        lg.addColorStop( 0.5,'yellow' )
+        lg.addColorStop( 1,'skyblue' )
+
+        ctx.rect(0,0,200,200)
+        ctx.fillStyle = lg
+        ctx.fill()
+        */
+
+        let rg = ctx.createRadialGradient( 200,200,50,300,300,100 )
+        rg.addColorStop( 0,'red' )
+        rg.addColorStop( 0.3,'pink' )
+        rg.addColorStop( 0.5,'yellow' )
+        rg.addColorStop( 1,'skyblue' )
+        // ctx.rect(0,0,200,200)
+        ctx.arc( 200,200,200,0,2*Math.PI,false )
+        ctx.fillStyle = rg
+        ctx.fill()
+
+
+    </script>
+</body>
+</html>

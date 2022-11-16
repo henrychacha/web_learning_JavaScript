@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">我是小强，打不死的小强</div>
+    <p>
+        <input type="text" placeholder="输入背景颜色" id="txt1">
+        <button id="btn1">修改背景颜色</button>
+    </p>
+    <p>
+        <input type="text" placeholder="输入文字颜色" id="txt2">
+        <button id="btn2">修改文字颜色</button>
+    </p>
+    <p>
+        <input type="text" placeholder="输入长度" id="txt3">
+        <button id="btn3">修改长度</button>
+    </p>
+    <p>
+        <input type="text" placeholder="输入高度" id="txt4">
+        <button id="btn4">修改高度</button>
+    </p>
+
+    <script>
+        var box = document.getElementById('box');
+        var txt1 = document.getElementById('txt1');
+        var btn1 = document.getElementById('btn1');
+        var txt2 = document.getElementById('txt2');
+        var btn2 = document.getElementById('btn2');
+        var txt3 = document.getElementById('txt3');
+        var btn3 = document.getElementById('btn3');
+        var txt4 = document.getElementById('txt4');
+        var btn4 = document.getElementById('btn4');
+
+        // 修改背景颜色
+        btn1.onclick = function () {
+            box.style.backgroundColor = txt1.value;
+        }
+
+        // 修改文字颜色
+        btn2.onclick = function () {
+            box.style.color = txt2.value;
+        }
+
+        // 修改长度
+        btn3.onclick = function () {
+            box.style.width = txt3.value + 'px';
+        }
+
+        // 修改高度
+        btn4.onclick = function () {
+            box.style.height = txt4.value + 'px';
+        }
+    </script>
+</body>
+
+</html>

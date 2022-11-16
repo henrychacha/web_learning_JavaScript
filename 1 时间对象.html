@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var d = new Date(); // 在不传参的情况下，返回的是当前电脑的时间
+        // console.log(d); // 时间对象，它是一个对象，里面有很多的属性和方法
+
+        var year = d.getFullYear(); // 年
+        var month = d.getMonth(); // 月  返回0--11， 代表1--12
+        var day = d.getDate(); // 日
+
+        var week = d.getDay(); // 星期　返回0--6，代表日--六
+
+        var h = d.getHours(); // 小时
+        var m = d.getMinutes(); // 分钟
+        var s = d.getSeconds(); // 秒
+
+        console.log(s);
+    </script>
+</body>
+
+</html>

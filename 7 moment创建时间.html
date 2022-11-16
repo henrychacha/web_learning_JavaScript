@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="js/moment.js"></script>
+    <script>
+        var d = moment(); // 没有参数，创建当前时间
+        var d = moment('2020-10-10'); // 年月日
+        var d = moment('2020-10-10 12:12:12'); // 年月日
+        var d = moment(Date.now() - 24 * 60 * 60 * 1000); // 传入时间戳
+        var d = moment('20201010'); // 年月日
+
+
+        // format格式化，我们可以给format传参
+        console.log(d.format('YYYY年MM月DD日 HH:mm:ss')); // 2020年05月26日 11:36:16
+
+
+
+
+    </script>
+</body>
+
+</html>

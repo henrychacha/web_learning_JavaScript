@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 从第一项起，比较相邻的两个元素，如果前一个比后一个大，则交换位置。第一轮的时候最后一个元素应该是最大的一个。每一轮最后一个元素已经是最大的了，所以最后一个元素下一轮不用比较。
+
+        var arr = [5, 32, 7, 45, 2];
+        console.log(fn(arr));
+
+        function fn(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+    </script>
+</body>
+
+</html>

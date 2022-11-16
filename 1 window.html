@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员
+        var a = 10;
+        function fn() {
+            console.log('我就是我');
+        }
+
+        console.log(a);
+        console.log(window.a);
+
+        fn();
+        window.fn();
+
+        // -----------------------
+        // window是一个对象，我们就可以循环它
+        // console.log(window);
+        var n = 0;
+        for (var attr in window) {
+            console.log(++n, attr, window[attr]);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

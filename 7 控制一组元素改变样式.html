@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+
+    <script>
+        // 需求：点击li列表项，第一次点击添加背景，第二次点击，取消背景
+
+        // 1、获取所有的li
+        // 2、循环给每个li添加点击(需要给每一个元素加一个自定义的属性，每一个元素都需要有自己的自定义属性，来控制添加背景或取消背景)
+
+        var li = document.getElementsByTagName('li');
+        for (var i = 0; i < li.length; i++) {
+            li[i].onOff = true; // 给每一个li元素添加自定义属性
+
+            li[i].onclick = function () {
+                // console.log(this.onOff); // 可得当前元素的自定义属性
+                if (this.onOff) {
+                    // 添加背景
+                    this.style.backgroundColor = 'green';
+                    this.onOff = false;
+                } else {
+                    // 取消背景
+                    this.style.backgroundColor = '';
+                    this.onOff = true;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

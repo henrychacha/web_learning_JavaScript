@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var d = new Date();
+
+        // 本地格式的字符串时间
+        console.log(d.toLocaleString()); // 2020/5/26 上午10:09:42
+        console.log(d.toLocaleDateString()); // 2020/5/26
+        console.log(d.toLocaleTimeString()); // 上午10:10:38
+
+        console.log(d.toString()); // Tue May 26 2020 10:11:22 GMT+0800 (中国标准时间)
+        console.log(d.toDateString()); // Tue May 26 2020
+        console.log(d.toTimeString()); // 10:11:58 GMT+0800 (中国标准时间)
+
+
+    </script>
+</body>
+
+</html>

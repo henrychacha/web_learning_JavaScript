@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj)[attr];
+            } else {
+                return obj.currentStyle[attr];
+            }
+        }
+
+        function move(obj, attr, target, callback) {
+            clearInterval(obj.timer); // 先清后开
+            obj.timer = setInterval(function () {
+                var iNow = parseInt(getStyle(obj, attr)); // 当前的位置  491.9   491
+
+
+
+                // var dir = iNow < target ? 10 : -10; // 方向 步长
+                var dir = (target - iNow) / 10; // 500-491  0.9
+                dir = dir > 0 ? Math.ceil(dir) : Math.floor(dir);
+
+
+                var speed = iNow + dir; // 下次应该运动到的位置  491.9
+
+                if ((speed >= target && dir > 0) || (speed <= target && dir < 0)) {
+                    speed = target;
+                }
+
+                obj.style[attr] = speed + 'px';
+
+                if (speed === target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+            }, 30);
+        }
+
+        var box = document.getElementById('box');
+        box.onclick = function () {
+            move(box, 'left', 500, function () {
+                console.log('我到了');
+            });
+        }
+    </script>
+</body>
+
+</html>

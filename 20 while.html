@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // while循环和for相比，只不过格式有变化。执行的过程都完全一模一样，执行效率没有差别
+        // 所有for都可以改成while，所有的while都可以改成for
+
+        // while的格式
+        // 1初始循环变量
+        // while (2判断条件) {
+        //     3执行代码
+        //     4更新循环变量
+        // }
+
+        // 1、打印1-10
+        var i = 1;
+        while (i <= 10) {
+            console.log(i);
+            i++;
+        }
+
+        // ---------------------------
+        // for也可以写成while的样子(不建议改，因为for的格式紧凑，代码集中，方便我们管理)
+        var i = 1;
+        for (; i <= 10;) {
+            console.log(i);
+            i++;
+        }
+    </script>
+</body>
+
+</html>

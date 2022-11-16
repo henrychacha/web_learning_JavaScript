@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 我们根据元素的位置，查找元素的子节点以及元素的兄弟节点
+            // 这些方法都可以接收一个筛选条件
+
+            $('#box').children().css('background', 'red'); // 所有的子节点(只找子节点，不找孙级节点)
+            $('#box').children('h2').css('background', 'red'); // 子节点中的h2
+
+            $('.title').next('h2').css('background', 'green'); // 下一个兄弟
+            $('.title').nextAll('h2').css('background', 'green'); // 下面所有的兄弟
+
+            $('.title').prev().css('background', 'red'); // 上一个兄弟
+            $('.title').prevAll().css('background', 'red'); // 上面所有的兄弟
+
+            $('.title').siblings().css('background', 'green'); // 兄弟元素
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <h3>h3</h3>
+        <h3>h3</h3>
+        <h2 class="title">h2</h2>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h3>h3</h3>
+        <h2>h2</h2>
+        <h3>h3</h3>
+    </div>
+</body>
+
+</html>

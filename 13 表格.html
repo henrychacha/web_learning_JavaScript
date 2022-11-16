@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="tab" width="400" border="1" cellspacing='0'>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>刘备</td>
+                <td>57</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>关羽</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>张飞</td>
+                <td>48</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>平头哥</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>小计</td>
+                <td>小计</td>
+                <td>小计</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        var oTab = document.getElementById('tab');
+
+        var head = oTab.tHead; // 表格头 一个
+        head.style.backgroundColor = 'red'
+
+        var foot = oTab.tFoot; // 表格尾 一个
+        foot.style.backgroundColor = 'green';
+
+        var bodys = oTab.tBodies; // 表格体 多个
+        bodys[0].style.backgroundColor = '#ccc';
+        console.log(bodys);
+
+        var row = bodys[0].rows; // 获取tr  多个 可以找table下面的，也可以找tbody下面的
+        row[1].style.backgroundColor = 'brown';
+        console.log(row);
+
+        var cell = row[1].cells; // 通过tr来获取td   多个
+        cell[1].style.backgroundColor = 'yellow';
+        console.log(cell);
+
+    </script>
+</body>
+
+</html>

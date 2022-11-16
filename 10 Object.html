@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object: 从页面中获取的都是对象
+        console.log(window, typeof window); // 'object'
+        console.log(document, typeof document); // 'object'
+
+        // ----------------------------------------
+
+        // 自己写的对象
+        var obj = {
+            name: '张三',
+            age: 3
+        }
+        console.log(obj, typeof obj); // { name: "张三", age: 3 }   'object'
+        // 对象的读取
+        console.log(obj.name); // 点的形式读
+        console.log(obj['age']); // 中括号的形式读
+
+
+        // ----------------------------
+        // 数组
+        var arr = [2, 3, 57, 5];
+        console.log(arr, typeof arr); // [ 2, 3, 57, 5 ]   'object'
+
+        // -----------------------------
+        // 函数
+        function fn() { };
+        console.log(fn, typeof fn); // function fn()       'function'
+
+
+    </script>
+</body>
+
+</html>

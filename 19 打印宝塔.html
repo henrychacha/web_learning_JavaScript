@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 50px;
+            line-height: 0.5;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // 在body中生成宝塔
+        window.onload = function () {
+            // 取得body标签
+            // var body = document.getElementsByTagName('body')[0];
+            var body = document.body;
+            // console.log(body);
+
+            // 外层走一次，内层走整个循环
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j <= i; j++) {
+                    body.innerHTML += '*';
+                }
+                body.innerHTML += '<br/>';
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

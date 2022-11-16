@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // jq把$作为标识，如果恰好别的库也以$作为标识，这样就会产生冲突
+        jQuery.noConflict(); // 将$的控制权让渡出来
+        (function ($) {
+            // 在这个里面，正常使用$
+            console.log($);
+        })(jQuery);
+
+        // 外面的$让给别的库使用
+        console.log($);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

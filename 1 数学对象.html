@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Math : 是宝库，数学对象的属性或者方法，都存在于这个里面
+        // {}   
+
+        // console.log(Math.floor(5.345)); // 向下取整   5
+        // console.log(Math.ceil(3.000001)); // 向上取整  4
+        // console.log(Math.round(3.1415)); // 四舍五入   3 
+        // console.log(Math.abs(-100)); // 绝对值  100
+        // console.log(Math.max(32, 4, 6, 333, 87)); // 最大值  333  
+        // console.log(Math.min(32, 4, 6, 333, 87)); // 最小值  4
+        // console.log(Math.pow(2, 3)); // 2的3次方  8
+        // console.log(Math.sqrt(60)); // 开根号 7.745966692414834
+
+        // ------------------------------------------------
+        // 随机数
+        // Math.random()
+        // 返回大于等于0，小于1的一个随机数
+        // for (var i = 0; i < 20; i++) {
+        //     console.log(Math.random());
+        // }
+
+        // 抽奖
+        var arr = ['谢谢惠顾', '一等奖：一百万', '谢谢惠顾', '二等奖：二百万', '谢谢惠顾', '二等奖：1毛钱', '三等奖：负一百万', '谢谢惠顾', '三等奖：负二百万'];
+
+        // 2--6    2 3 4 5 6         总个数：5  6-2+1     5*Math.random()    0-4.99999   加上最小值   2  6.9999999     向下取整   2   6
+        // 3--8    3 4 5 6 7 8       总个数：6  8-3+1     6*Math.random()    0-5.99999   加上最小值   3  8.9999999     向下取整   3   8
+
+
+        // 推导一个随机数公式（可以取得任何两个值之间的一个机数）
+        // 1、大减小加1 
+        // 2、乘以随机数
+        // 3、加上最小数
+        // 4、向下取整
+
+        // 取得任何两个值之间的
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // --------------------------------
+        // 2--6的随机数
+        for (var i = 0; i < 20; i++) {
+            console.log(getRandom(2, 6));
+        }
+
+        // 抽奖
+        console.log(arr[getRandom(0, arr.length - 1)]);
+
+    </script>
+</body>
+
+</html>

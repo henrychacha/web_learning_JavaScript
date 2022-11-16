@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="password" id="pass">
+    <button id="btn">解密</button>
+    <input type="text" id="txt">
+
+    <script>
+        // 1、获取元素（检查是否获取正确）
+        var pass = document.getElementById('pass');
+        var btn = document.getElementById('btn');
+        var txt = document.getElementById('txt');
+        // console.log(pass, btn, txt);
+
+        // 2、点击解密
+        btn.onclick = function () {
+            // 3、取得密码框的值，放到右边来
+            var p = pass.value; // 密码框的值（取值）
+            txt.value = p; // 给右边赋值（设置）
+        }
+
+    </script>
+</body>
+
+</html>

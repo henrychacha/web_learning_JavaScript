@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 每隔1秒钟，在控制台中打印1--10
+
+        var i = 0;
+
+        var timer = setInterval(function () {
+            i++;
+            console.log(i);
+            if (i === 10) {
+                clearInterval(timer);
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

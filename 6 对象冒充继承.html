@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 父类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.arr = [1, 2, 3];
+        }
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        // 子类
+        function ChildPerson(name, age) { // 这个里面的this就是new调用时返回的对象
+            Person.call(this, name, age);
+        }
+
+        // 好：解决了原型链继承引用类型共用的问题
+        // 不足：不能继承父类原型上的方法
+
+        var p1 = new ChildPerson('张三', 3);
+        console.log(p1);
+        console.log(p1.age);
+        console.log(p1.name);
+        p1.arr.push(4);
+        console.log(p1.arr);
+        console.log(p1.showName);
+
+        var p2 = new ChildPerson('李四', 5);
+        console.log(p2.arr);
+
+
+    </script>
+</body>
+
+</html>

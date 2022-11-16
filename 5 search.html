@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：字符串.search(正则);
+        // 作用：查找正则在字符串中的位置，返回找到的下标，如果找不到，返回-1。相当于indexOf （单数indexof不能识别正则）
+
+        // 空格会算入
+
+        var str = 'hello world';
+        var re1 = /o/;
+        var re2 = /a/;
+        console.log(str.search(re1)); // 4
+        console.log(str.search(re2)); // -1
+
+    </script>
+</body>
+
+</html>

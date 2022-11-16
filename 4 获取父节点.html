@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 50px 40px;
+        }
+
+        #box1 {
+            background: green;
+            position: relative;
+        }
+
+        #box2 {
+            background: yellow;
+            position: relative;
+        }
+
+        #box3 {
+            background: brown;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+
+    <script>
+        // 元素.parentNode  父节点(浏览器都支持)
+        // 元素.offsetParent  返回离它最近的有定位属性的父级，如果没有定位的父级，则返回body
+
+        var box3 = document.getElementById('box3');
+
+        console.log(box3.parentNode); // box2
+
+        console.log(box3.offsetParent);
+
+
+
+
+    </script>
+</body>
+
+</html>

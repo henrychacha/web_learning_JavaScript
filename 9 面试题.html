@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // var a = 10;
+        // var b = a++; // 第一步：b = a;   第二步：a++;
+        // console.log(a); // 11
+        // console.log(b); // 10
+
+        // ------------------------------------
+        var x = 1,
+            y = z = 0;
+
+        function add(n) {
+            n = n + 1;
+        };
+        y = add(x);
+
+        function add(n) {
+            n = n + 3;
+        };
+        z = add(x);
+
+        console.log(x, y, z); // 1 undefined undefined
+    </script>
+</body>
+
+</html>

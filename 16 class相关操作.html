@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // jQuery对象.addClass('class类1 class类2'); // 添加
+            // jQuery对象.removeClass('class类1'); // 删除
+            // jQuery对象.hasClass('class类1'); // 是否有这个class，返回真假
+            // jQuery对象.toggleClass('class类1'); // 如果有这个class，则删除，如果没有，则添加
+
+            $('#box').addClass('abc bbb ccc'); // 添加
+            $('#box').removeClass('bbb'); // 删除
+            console.log($('#box').hasClass('bbb')); // 是否有这个class类,返回真假
+            $('#box').toggleClass('ccc'); // 有则删除,没有则添加
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="box" class="abc">平头哥</div>
+</body>
+
+</html>

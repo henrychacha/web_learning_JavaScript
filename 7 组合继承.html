@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 父类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.arr = [1, 2, 3];
+        }
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        // 子类
+        function ChildPerson(name, age) {
+            Person.call(this, name, age); // 使用对象冒充继承继承构造函数里面的
+        }
+        ChildPerson.prototype = new Person(); // 使用原型链继承继承原型上的方法
+
+
+        var p1 = new ChildPerson('张三', 3);
+        console.log(p1);
+        console.log(p1.age);
+        console.log(p1.name);
+        console.log(p1.arr);
+        p1.showName()
+
+        // 问题：
+        // 1、相同的属性，在原型链上出现了两次（读取没有问题，因为子实例上面的屏闭了原型上面的属性）
+        // 2、父类的构造函数调用了两次
+
+
+
+
+    </script>
+</body>
+
+</html>

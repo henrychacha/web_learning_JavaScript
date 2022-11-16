@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 创建标签：document.createElement('标签名');
+        // 创建文本：document.createTextNode('文本内容');
+        // 添加元素：父元素.appendChild(子元素);
+
+        var div = document.createElement('div'); // 创建出来的这个DIV，还是我们js世界的孤儿，没有地方可去，还漂在js内存
+
+        // var txt = document.createTextNode('我是平头哥'); // 创建文本
+        // div.appendChild(txt); // 文本添加到div中
+        div.innerHTML = '我是平头哥2'; // 给div添加内容
+
+        document.body.appendChild(div); // 把div添加到body中
+    </script>
+</body>
+
+</html>

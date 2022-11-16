@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>我是平头哥</p>
+    <ul id="list">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+
+    <script>
+        // 父节点.children     只识别标签元素（推荐使用）
+
+        // 父节点.childNodes   它识别文本、换行（在IE8及以下，只识别标签元素）
+
+        var list = document.getElementById('list');
+
+        var li = list.children;
+        console.log(li); // 4个
+
+        var li2 = list.childNodes;
+        console.log(li2); // 9个
+
+    </script>
+</body>
+
+</html>

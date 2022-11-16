@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('post', 'data/1.txt', true);
+
+        // 在send发送之前，一定要设置请求头(告诉后端的编码方式)
+        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+        // 如果有数据，以参数的形式加在send中
+        xhr.send('c=3&d=4');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+    </script>
+
+
+    <form action="" method="post" enctype="multipart/form-data"></form>
+</body>
+
+</html>

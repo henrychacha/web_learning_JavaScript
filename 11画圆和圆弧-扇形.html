@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    #canvas1{
+        border: 1px solid blue;
+    }
+</style>
+<body >
+    <canvas id="canvas1">显示出这里，代表浏览器该升级了。</canvas>
+
+   <script>
+
+    //1. 获取canvas标签对象
+    var canvas = document.getElementById('canvas1')
+    canvas.width = 400
+    canvas.height = 400
+    //2. 获取画笔对象| 画布的上下文对象
+    var ctx = canvas.getContext('2d')
+
+    /*
+    圆、扇形、弧    
+        ctx.arc(rx,ry,r,startAngle,endAngle,counterClockWise)  
+            rx:圆心x
+            ry:圆心y
+            startAngle:开始的角度【弧度】  角度/180*Math.PI
+            endAngle:结束的角度【弧度】
+            counterClockWise :  boolean  False = 顺时针，true = 逆时针。
+    */
+
+    //1. 360度的圆
+    /* 
+    ctx.arc( 200,200,100,0,360/180*Math.PI,false )
+    ctx.stroke()
+    */
+
+    //2. 画圆弧
+    /*
+    ctx.arc( 200,200,100,0,90/180*Math.PI,false )
+    //ctx.closePath()
+    ctx.stroke()
+    //ctx.fill()
+    */
+
+    //3. 画扇形  ctx.moveTo
+    ctx.moveTo( 200,200 )
+    ctx.arc( 200,200,100,0,90/180*Math.PI,false )
+    ctx.closePath()
+    ctx.stroke()
+   </script>
+</body>
+</html>

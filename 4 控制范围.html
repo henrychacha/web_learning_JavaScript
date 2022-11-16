@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        var box = document.getElementById('box');
+
+        // 按下
+        box.onmousedown = function (ev) {
+            var ev = ev || event;
+
+            // 兼容IE8及以下，设置全局捕获
+            if (box.setCapture) {
+                box.setCapture();
+            }
+
+            // 可视区的宽高
+            var clientW = document.documentElement.clientWidth;
+            var clientH = document.documentElement.clientHeight;
+
+            // 盒子的宽高
+            var boxW = box.clientWidth;
+            var boxH = box.clientHeight;
+
+            var disX = ev.clientX - box.offsetLeft; // 鼠标到盒子的距离
+            var disY = ev.clientY - box.offsetTop;
+
+            // 拖动
+            document.onmousemove = function (ev) {
+                var ev = ev || event;
+                var x = ev.clientX - disX;
+                var y = ev.clientY - disY;
+
+                if (x < 0) {
+                    x = 0;
+                } else if (x > clientW - boxW) {
+                    x = clientW - boxW
+                }
+                if (y < 0) {
+                    y = 0;
+                } else if (y > clientH - boxH) {
+                    y = clientH - boxH;
+                }
+
+                box.style.left = x + 'px';
+                box.style.top = y + 'px';
+            }
+
+            // 抬起
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                // 兼容IE8及以下，释放全局捕获
+                if (box.releaseCapture) {
+                    box.releaseCapture();
+                }
+            }
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>

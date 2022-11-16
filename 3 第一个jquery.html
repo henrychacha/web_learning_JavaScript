@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // 页面加载完成
+        window.onload = function () {
+            alert('加载完成了');
+        }
+
+        // jq
+        // $(document).ready(function () {
+        //     alert('jq加载完成了');
+        // });
+
+        // 简写
+        $(function () { });
+
+        // 1、执行时机不同，window.onload必须等待网页中所有的内容加载完毕后（包括图片）才能执行，而$(document).ready()是网页中所有DOM结构绘制完毕就执行，可能DOM元素关联的东西并没有加载完。
+        // 2、window.onload只能写一个,多个时后面的会覆盖掉前面的，而$(document).ready()可以写多个，不会覆盖。
+        // 3、window.onload没有简写形式，而$(document).ready()可以简写成$(function (){})。
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

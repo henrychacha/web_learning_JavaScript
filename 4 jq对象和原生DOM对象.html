@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 原生
+            var li = document.getElementsByTagName('li'); // 获取所有的li
+            console.log(li);
+
+            var li2 = $('li'); // 获取所有的li
+            console.log(li2);
+
+
+            // 通过原生方法获取的元素是原生的DOM元素（DOM元素只能用原生的方法，不能用jq的方法）
+            // 通过jq方法获取的元素就是jq元素（jq元素只能用jq的方法）
+
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+</body>
+
+</html>

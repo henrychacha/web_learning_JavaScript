@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<!-- [
+		[10,20,30,40,50,60,70,80,90,100],
+		[110,120,130,140,150,160,170,180,190,200],
+		[210]
+	] -->
+	<script type="text/javascript">
+		var arr1 = [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210]
+		var size = 10
+
+		let loop = Math.ceil( arr1.length/size )
+		let arr2 = [] //才是真正要渲染的数据 二维数组
+		
+		while(loop > 0){
+			arr2.push([])
+			loop--
+		}
+
+		arr1.forEach((item,index)=>{
+			let i = Math.floor(index/10)
+			//console.log(arr2,i)
+			arr2[i].push(item)
+		})
+		console.log(arr2)
+	</script>
+</body>
+</html>

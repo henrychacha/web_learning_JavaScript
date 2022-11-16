@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">向右</button>
+    <button id="btn2">向左</button>
+    <div id="box"></div>
+
+    <script>
+        // 1、封装一个方法，用于获取元素的样式
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                // 标准浏览器
+                return getComputedStyle(obj)[attr];
+            } else {
+                // IE8及以下
+                return obj.currentStyle[attr];
+            }
+        }
+
+        // 封装
+        function move(obj, attr, target, callback) {
+            clearInterval(obj.timer); // 先清后开
+
+            obj.timer = setInterval(function () {
+                var speed = parseInt(getStyle(obj, attr)); // 取得当前的位置
+                var dir = speed < target ? 10 : -10; // 我们在程序内部判断
+                speed += dir; // 这次定时器box应该运动到的位置
+
+                if ((speed >= target && dir > 0) || (speed <= target && dir < 0)) {
+                    speed = target;
+                }
+
+                obj.style[attr] = speed + 'px'; // 把这个值再赋回去
+
+                // 如果speed === target，则运动完成了
+                if (speed === target) {
+                    clearInterval(obj.timer);
+                    callback && callback(); // 如果函数存在 就执行函数    函数名()
+                }
+            }, 30);
+        }
+
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var box = document.getElementById('box');
+
+        // 向右
+        btn1.onclick = function () {
+            move(box, 'left', 500, function () {
+                console.log('我执行完成了');
+            });
+        }
+
+        // 问题：点一下，动一下，非常不智能(加定时器)
+        // 问题：不能停止
+        // 问题：多次点击会加速（开了多个定时器）
+        // 问题：我仅仅只希望元素跑起来，但是外面有定时器（对外界依赖过多），将定时器作为box的自定义属性 box.timer
+        // 问题：暂时只能向面，没有向左
+        // 问题：没有封装（向左和向右的函数，大部分都是一样的，所以我们要把它封装起来，不一样的部分传参）
+        // 问题：dir不应该由用户来判断，而应该由我们程序来判断
+        // 问题：加上回调函数（运运完成之后，要执行一个回调函数）
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var str = 'abcdefg'; // def
+        console.log(str.substring(3, 6));
+        console.log(str.slice(3, 6));
+        console.log(str.substr(3, 3));
+
+        // 获取前一个月
+        var n = moment().subtract(1, 'month').format('YYYY-MM-DD');
+        console.log(n);
+
+
+
+    </script>
+</body>
+
+</html>

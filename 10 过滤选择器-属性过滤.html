@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 属性过滤选择器的过滤规则是通过元素的属性来获取相应的元素。
+            $('li[title]').css('background', 'red'); // 获取有title属性的
+            $('li:not([title])').css('background', 'red'); // 获取没有title属性的
+
+            $('li[title=优就业]').css('background', 'red'); // 获取title属性是什么的
+            $('li[title^=a]').css('background', 'red'); // 获取title属性以什么开头
+            $('li[title$=业]').css('background', 'red'); // 获取title属性以什么结尾的
+            $('li[title*=b]').css('background', 'red'); // 获取title属性包含什么的
+        })
+    </script>
+</head>
+
+<body>
+
+    <ul>
+        <li>111</li>
+        <li title="优就业">111</li>
+        <li title="abc">111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+
+
+</body>
+
+</html>

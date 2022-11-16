@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 比较运算符，返回的是布尔值
+        // > >=
+        // < <=
+
+        // 1、如果有一边不是字符串，则都转成数字，进行比较
+        // 2、如果两边都是字符串，则是字符串的比较（字符串比较的是ASCII编码），从左向右，一位一位的比较
+        // 0对应48  9对应57
+        // a对应97  z对应122
+        // A对应65  Z对应90
+        console.log(10 >= 5); // true
+        console.log(10 >= 10); // true
+        console.log(10 >= 11); // false
+
+        console.log(10 >= '2'); // true
+        console.log('10' >= '2'); // false
+        console.log('abc' < 'ABC'); // false
+
+        // -------------------------------
+        // == !=    值是否相等(会发生数据类型转换，一般调用Number()方法转成数字，null和undefined相等，它们跟别的值进行比较时，不能进行数转换)
+        console.log('10' == 10); // true
+        console.log('10' != 10); // false
+        // == 是说左右两边值是相等的
+        // != 是说左右两边的值不是相等的
+
+        console.log('' == false); // true
+        console.log(null == false); // false
+        console.log(null == undefined); // true  (这是规定的)
+        console.log(null != undefined); // false 
+
+
+
+
+
+        // --------------------------------
+        // === !==  全等，值和类型都要相等
+        console.log(10 === '10'); // false
+        console.log(10 !== '10'); // true
+
+
+        // 一个等号是赋值，两个等号是值是否相等，三个等号是值和类型是否都相等
+        // 一般推荐大家用三个等号的相等，而不用两个等号的相等
+
+    </script>
+</body>
+
+</html>

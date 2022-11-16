@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 需求：要给一个元素的同一个事件，绑定不同的处理函数
+        var box = document.getElementById('box');
+        function fn1() {
+            console.log(1);
+        }
+        function fn2() {
+            console.log(2);
+        }
+
+        // 原来的写法。如何解绑，后面的覆盖前面的
+        // box.onclick = fn1;
+        // box.onclick = null;
+
+        // ------------------------------------
+        // 标准浏览器（IE8及以下不支持）
+        // 元素.addEventListener(不加on的事件名, 函数, 是否捕获);
+        // 元素.removeEventListener(不加on的事件名, 函数, 是否捕获);
+        // box.addEventListener('click', fn1, false);
+        // box.addEventListener('click', fn2, false);
+        // box.removeEventListener('click', fn1, false); // 解绑第一个
+
+        // -------------------------
+        // IE10及以下支持
+        // 元素.attachEvent(加on的事件名, 函数);
+        // 元素.detachEvent(加on的事件名, 函数);
+        // box.attachEvent('onclick', fn1);
+        // box.attachEvent('onclick', fn2);
+        // box.detachEvent('onclick', fn1); // 解绑第一个
+
+        // --------------------------
+        // 事件绑定的兼容封装，参数：元素 事件 函数
+        function bind(obj, ev, callback) {
+            if (obj.addEventListener) {
+                // 标准浏览器
+                obj.addEventListener(ev, callback, false);
+            } else {
+                // IE8及以下
+                obj.attachEvent('on' + ev, callback);
+            }
+        }
+        // 解绑的兼容，参数：元素 事件 函数
+        function unbind(obj, ev, callback) {
+            if (obj.removeEventListener) {
+                // 标准浏览器
+                obj.removeEventListener(ev, callback, false);
+            } else {
+                // IE8及以下
+                obj.detachEvent('on' + ev, callback);
+            }
+        }
+
+        // 绑定
+        bind(box, 'click', fn1);
+        bind(box, 'click', fn2);
+        unbind(box, 'click', fn1); // 解绑
+
+    </script>
+</body>
+
+</html>

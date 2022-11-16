@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 格式：正则.exec(字符串);
+        // 作用：在字符串中，查找正则匹配的内容，如果找到，返回由找到的内容组成的一个数组，否则返回null
+        // 注意：不识别标识符g
+
+        var str = 'hello world';
+        var re1 = /o/;
+        var re2 = /a/;
+        console.log(re1.exec(str)); // [ "o" ]
+        console.log(re2.exec(str)); // null
+
+    </script>
+</body>
+
+</html>

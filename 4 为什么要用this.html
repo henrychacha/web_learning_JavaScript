@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+
+    <script>
+        // 点击li，打印出这个li的内容
+
+        // 1、获取所有的li
+        // 2、循环li，给每个li绑定点击事件
+
+        var li = document.getElementsByTagName('li');
+        for (var i = 0; i < li.length; i++) {
+            // 给每个li绑定点击事件
+            li[i].onclick = function () {
+                // console.log(i); // 3，我们想的i是 0 1 2
+                // console.log(li[i]); // undefined，因为下标只有0 1 2 ，没有3，所以是undefined
+                // console.log(li[i].innerHTML);  // 报错，因为undefined哪来的innerHTML
+
+                // 在这个里面找i，不靠谱，哪我们怎么办呢，我们就要用到this
+                // this: 一般在函数中使用，谁让这个函数执行了，this就指向谁
+                console.log(this);
+                console.log(this.innerHTML);
+            }
+        }
+
+        // for的执行速度非常之快，当for走完了，i的值就是3
+        // 我们刷新完页面之后，才去点击（后执行），但这个时候，for已经走完了（i就是3），我们在点击的函数里面，找i，哪i的值当然就是3了
+        console.log(i); // 3
+
+    </script>
+
+</body>
+
+</html>
